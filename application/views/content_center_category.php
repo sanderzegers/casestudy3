@@ -10,7 +10,7 @@
         <div id="content_center_item_left">
         <div id="content_center_item_left_upper">
         <center><img src="<? if (!empty($artikel->BildName))
-			echo "/ci/articleimages/".$artikel->BildName; else echo "/Images/products/mouse1.jpg"; ?>" height="111"> 
+			echo "/articleimages/".$artikel->BildName; else echo "/Images/products/mouse1.jpg"; ?>" height="111"> 
 		</center>
         </div>
         <div id="content_center_item_left_lower">
