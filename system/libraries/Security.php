@@ -318,7 +318,7 @@ class CI_Security {
 		 */
 		if ($is_image === TRUE)
 		{
-			// Images have a tendency to have the PHP short opening and closing tags every so often
+			// images have a tendency to have the PHP short opening and closing tags every so often
 			// so we skip those and only do the long opening tags.
 			$str = preg_replace('/<\?(php)/i', "&lt;?\\1", $str);
 		}
@@ -444,7 +444,7 @@ class CI_Security {
 		}
 
 		/*
-		 *  Images are Handled in a Special Way
+		 *  images are Handled in a Special Way
 		 *  - Essentially, we want to know that after all of the character conversion is done whether
 		 *  any unwanted, likely XSS, code was found.  If not, we return TRUE, as the image is clean.
 		 *  However, if the string post-conversion does not matched the string post-removal of XSS,

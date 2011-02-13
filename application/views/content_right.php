@@ -4,7 +4,7 @@
 				Product of the Day
 				</div>
 			<div id="content_right_top_image">
-				<IMG SRC="Images/potd/potd2.jpg">				
+				<IMG SRC="images/potd/potd2.jpg">				
 			</div>
 		</div>
 				

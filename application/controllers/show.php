@@ -7,6 +7,7 @@ class Show extends CI_Controller {
 		parent::__construct();
 		}
 	
+	
 	function index()
 		{
 		$this->load->view('head');
@@ -16,38 +17,33 @@ class Show extends CI_Controller {
 		$this->load->view('foot');
 		}
 	
-	/*
-	 function product($id){
-	 $this->load->model('article');
-	 $data['content'] = $this->article->getDetails($id);
-	 $data['title'] = "getDetails: ".$id;
-	 $this->load->view('head');
-	 $this->createMenuLeft();
-	 $this->load->view('content_center',$data);
-	 $this->load->view('content_right');
-	 $this->load->view('foot');
-	 }
-	 */
-	
 	function category($id){
 		
 		$this->load->model('article');
-		$data['content'] = $this->article->getByCategorie($id);
-		$data['h1'] = $this->article->getCategorieName($id);
 		
-		//$data['availabillity'] = array(array(;
+		// include() is not the CI way.. but apparently the only way to load multiple objects from the same class
+		include("application/libraries/Articleclass.php");
 		
+		$dbGetByCategorie = $this->article->getByCategorie($id);
+		$dbgetCategorieName = $this->article->getCategorieName($id);
 		
 		$this->load->view('head');
-		
 		$this->createMenuLeft();
 		
-		if(!empty($data['content'])){
+		$data['h1'] = $dbgetCategorieName;
+		
+		if(!empty($dbGetByCategorie)){
+		foreach($dbGetByCategorie as $dbArticle){
+			$articles[] = new Articleclass($dbArticle);
+		}
+			$data['content'] = $articles;
 			$this->load->view('content_center_category',$data);
 		}
 		else {
 			$this->load->view('content_center',array("title" => "Hoppla","content" => "Keine Artikel gefunden!"));
 		}
+		
+		
 		$this->load->view('content_right');
 		$this->load->view('foot');
 	}

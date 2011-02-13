@@ -17,11 +17,18 @@
 <meta name="page-topic" content="Online-Shop">
 <meta name="revisit-after" content="14 days">
 <meta name="robots" content="index, follow">
-<link href="Images/fav_icon.ico" rel="shortcut icon">
-<link href="Images/fav_icon.ico" rel="icon">
+<link href="images/fav_icon.ico" rel="shortcut icon">
+<link href="images/fav_icon.ico" rel="icon">
 <TITLE>Z2H-Design</TITLE>
 
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>style.css">
+
+<script type="text/javascript">
+
+function changePic(a,b){
+	document.getElementById(a).setAttribute("src",b );
+}
+</script>
 
 </HEAD>
 

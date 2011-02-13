@@ -49,7 +49,7 @@ h2 {
 #top {
 	width: 912px;
 	height: 85px;
-	background-image:url('Images/top.jpg');
+	background-image:url('images/top.jpg');
 	text-align:left;
 	font-size:18px;
 }
@@ -96,14 +96,14 @@ h2 {
 #banner {
 	width: 912px;
 	height: 160px;
-	background-image:url('Images/banner.jpg');
+	background-image:url('images/banner.jpg');
 	text-align:left;
 }
 
 #over_content {
 	width: 912px;
 	height: 35px;
-	background-image:url('Images/over_content.jpg');
+	background-image:url('images/over_content.jpg');
 	padding-top:5px;
 	text-align:center;
 	text-align:left;
@@ -150,7 +150,7 @@ h2 {
 #content_left {
 	width: 175px;
 	height: auto;
-	background-image:url('Images/back_navi1.jpg');
+	background-image:url('images/back_navi1.jpg');
 	background-repeat:no-repeat;
 	background-position:top;
 	text-align:left;
@@ -160,7 +160,7 @@ h2 {
 #content_left2 {
 	width: 175px;
 	height: auto;
-	background-image:url('Images/back_navi2.jpg');
+	background-image:url('images/back_navi2.jpg');
 	background-position:bottom;
 	text-align:left;
 	margin-top:8px;
@@ -171,7 +171,7 @@ h2 {
 	width: 175px;
 	height: auto;
 	color: #FFFFFF;
-	background-image:url('Images/back_navi3.jpg');
+	background-image:url('images/back_navi3.jpg');
 	background-repeat:no-repeat;
 	background-position:bottom;
 	text-align:left;
@@ -231,7 +231,7 @@ h2 {
 	height:auto;
 	float:left;
 	min-width:527px;
-	background-image:url(Images/dot4line.jpg);
+	background-image:url(images/dot4line.jpg);
 	background-repeat:repeat-x;
 }
 
@@ -245,7 +245,7 @@ h2 {
 #content_right_top {
 	width: 150px;
 	height: 150px;
-	background-image:url('Images/back_right_top.jpg');
+	background-image:url('images/back_right_top.jpg');
 	text-align:left;
 	color:#FFFFFF;
 	text-align:center;
@@ -281,7 +281,7 @@ h2 {
 	width: 150px;
 	height: auto;
 	color:#FFFFFF;
-	background-image:url('Images/back_right_bottom1.jpg');
+	background-image:url('images/back_right_bottom1.jpg');
 	background-repeat:no-repeat;
 	background-position:top;
 	text-align:left;
@@ -292,7 +292,7 @@ h2 {
 	width: 150px;
 	height: auto;
 	color:#FFFFFF;
-	background-image:url('Images/back_right_bottom2.jpg');
+	background-image:url('images/back_right_bottom2.jpg');
 	background-position:bottom;
 	text-align:left;
 	margin-top:8px;
@@ -304,7 +304,7 @@ h2 {
 	height: auto;
 	min-height:241px;
 	color:#FFFFFF;
-	background-image:url('Images/back_right_bottom3.jpg');
+	background-image:url('images/back_right_bottom3.jpg');
 	background-repeat:no-repeat;
 	background-position:bottom;
 	text-align:left;
@@ -314,7 +314,7 @@ h2 {
 #footer {
 	width: 912px;
 	height: 20px;
-	background-image:url('Images/back_footer.jpg');
+	background-image:url('images/back_footer.jpg');
 	background-repeat:no-repeat;
 	margin-top:40px;
 	text-align:center;

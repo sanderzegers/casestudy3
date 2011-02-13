@@ -25,7 +25,7 @@ class Article extends CI_Model{
 	
 	function getByCategorie($artikelKategorie){
 				
-		$sql = "SELECT * FROM artikel LEFT JOIN bild ON bild.BildArtikel=artikel.ArtikelNummer WHERE artikelKategorie = ?";
+		$sql = "SELECT ArtikelNummer, ArtikelBezeichnung, ArtikelBeschreibung, ArtikelKategorie, ArtikelPreis, ArtikelStatus, ArtikelBestand,BildPfad, group_concat(bild.BildName) as BildName FROM artikel LEFT JOIN bild ON bild.BildArtikel=artikel.ArtikelNummer WHERE artikelKategorie = ? group by ArtikelNummer";
 		
 		$query = $this->db->query($sql,$artikelKategorie);
 		
@@ -35,6 +35,7 @@ class Article extends CI_Model{
 			}
 			return $data;
 		}
+		
 		
 	}
 	

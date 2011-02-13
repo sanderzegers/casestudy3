@@ -17,8 +17,8 @@
 <meta name="page-topic" content="Online-Shop">
 <meta name="revisit-after" content="14 days">
 <meta name="robots" content="index, follow">
-<link href="Images/fav_icon.ico" rel="shortcut icon">
-<link href="Images/fav_icon.ico" rel="icon">
+<link href="images/fav_icon.ico" rel="shortcut icon">
+<link href="images/fav_icon.ico" rel="icon">
 <TITLE>Z2H-Design</TITLE>
 
 <link rel="stylesheet" type="text/css" href="<?= base_url();?>style.css">
@@ -119,7 +119,7 @@
 				Product of the Day
 				</div>
 			<div id="content_right_top_image">
-				<IMG SRC="Images/potd/potd2.jpg">				
+				<IMG SRC="images/potd/potd2.jpg">				
 			</div>
 		</div>
 				
