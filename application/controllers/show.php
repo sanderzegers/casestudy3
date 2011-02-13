@@ -10,15 +10,16 @@ class Show extends CI_Controller {
 	
 	function index()
 		{
-		$this->load->view('head');
+		$this->load->view('head/standard');
 		$this->createMenuLeft();
-		$this->load->view('content_center',array("title" => "test","content" => "inhalt"));
-		$this->load->view('content_right');
-		$this->load->view('foot');
+		$this->load->view('content_center/standard',array("title" => "test","content" => "inhalt"));
+		$this->load->view('content_right/standard');
+		$this->load->view('foot/standard');
 		}
 	
 	function category($id){
 		
+	
 		$this->load->model('article');
 		
 		// include() is not the CI way.. but apparently the only way to load multiple objects from the same class
@@ -27,9 +28,9 @@ class Show extends CI_Controller {
 		$dbGetByCategorie = $this->article->getByCategorie($id);
 		$dbgetCategorieName = $this->article->getCategorieName($id);
 		
-		$this->load->view('head');
+		$this->load->view('head/standard');
 		$this->createMenuLeft();
-		
+
 		$data['h1'] = $dbgetCategorieName;
 		
 		if(!empty($dbGetByCategorie)){
@@ -37,15 +38,15 @@ class Show extends CI_Controller {
 			$articles[] = new Articleclass($dbArticle);
 		}
 			$data['content'] = $articles;
-			$this->load->view('content_center_category',$data);
+			$this->load->view('content_center/category',$data);
 		}
 		else {
-			$this->load->view('content_center',array("title" => "Hoppla","content" => "Keine Artikel gefunden!"));
+			$this->load->view('content_center/standard',array("title" => "Hoppla","content" => "Keine Artikel gefunden!"));
 		}
 		
 		
-		$this->load->view('content_right');
-		$this->load->view('foot');
+		$this->load->view('content_right/standard');
+		$this->load->view('foot/standard');
 	}
 	
 	
@@ -53,7 +54,7 @@ class Show extends CI_Controller {
 		//TODO: Irgendwo Zentral speichern
 		$this->load->model('menu');
 		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left',array("menu" => $menuData));
+		$this->load->view('content_left/standard',array("menu" => $menuData));
 	}
 	
 	

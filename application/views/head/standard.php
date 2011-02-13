@@ -28,6 +28,7 @@
 function changePic(a,b){
 	document.getElementById(a).setAttribute("src",b );
 }
+
 </script>
 
 </HEAD>
@@ -35,6 +36,7 @@ function changePic(a,b){
 <BODY>
 <center>
 
+<? echo $this->session->userdata('name')?>
 <div id="container">
 
 	<div id="top">
@@ -58,7 +60,7 @@ function changePic(a,b){
 	</div>
 	
    	<div id="over_content">
-	.:: <a class="a2" href="index.html">online shop</a> :: <a class="a2" href="index.html">maeuse</a> :: <a class="a2" href="index.html">kabellos</a> ::.
+	.:: <a class="a2" href="<?=site_url('login')?>">Anmelden</a> :: <a class="a2" href="<?=site_url('register')?>">Registrieren!</a> :: <a class="a2" href="index.html">kabellos</a> ::.
 	</div>
 	
 	<div id="content">

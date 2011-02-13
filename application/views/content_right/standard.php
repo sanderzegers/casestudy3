@@ -1,10 +1,12 @@
+<? $templateImage = $this->config->item('templateImage');?>
+		
 		<div id="content_right">
 			<div id="content_right_top">
 				<div id="content_right_top_title">
 				Product of the Day
 				</div>
 			<div id="content_right_top_image">
-				<IMG SRC="images/potd/potd2.jpg">				
+				<IMG SRC="<?= $templateImage ?>potd/potd2.jpg">				
 			</div>
 		</div>
 				
