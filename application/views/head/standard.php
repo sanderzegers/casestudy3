@@ -36,7 +36,9 @@ function changePic(a,b){
 <BODY>
 <center>
 
-<? echo $this->session->userdata('name')?>
+<? echo "rev ".date("r",getlastmod())?>
+<? echo "<br>Usr: ".$this->session->userdata('name')?>
+
 <div id="container">
 
 	<div id="top">

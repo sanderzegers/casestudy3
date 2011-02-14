@@ -10,13 +10,17 @@
 <?php echo form_open('login/send'); ?>
 
 
-<h5>Username</h5>
+<h5>Benutzername</h5>
 <input type="text" name="username" value="" size="50" />
 
-<h5>Password</h5>
+<h5>Passwort</h5>
 <input type="text" name="password" value="" size="50" />
 
-<div><input type="submit" value="Submit" /></div>
+
+<p><div><input type="submit" value="Senden" /></div></p>
+
+<br>
+<p><font color='red'> <?=$message ?> </font></p>
 
 </form>
 

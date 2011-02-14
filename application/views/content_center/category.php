@@ -2,6 +2,7 @@
 $imagePath = $this->config->item('articleImage') ;
 $defaultPicture = $this->config->item('defaultArticleImage');
 $templateImage = $this->config->item('templateImage');
+$currency = $this->config->item('currency');
 ?>
 
 
@@ -66,7 +67,7 @@ $templateImage = $this->config->item('templateImage');
           <table width="348" border="0">
             <tr>
               <td width="60">Preis</td>
-              <td width="103"><? echo sprintf("%01.2f", $artikel->preis)?></td>
+              <td width="103"><? echo $currency." ".sprintf("%01.2f", $artikel->preis)?></td>
               <td width="60">Verf.</td>
               <td width="107">
               <? for ($i=1; $i <= $artikel->verfuegbarkeit; $i++){

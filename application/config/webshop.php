@@ -41,4 +41,19 @@ $config['defaultArticleImage'] = base_url()."images/products/mouse1.jpg";
 
 $config['templateImage'] = base_url().'images/';
 
+
+/*
+|--------------------------------------------------------------------------
+| Global currency setting. 
+|--------------------------------------------------------------------------
+| 
+|
+| Default: 'CHF';
+|
+*/
+
+$config['currency'] = 'CHF';
+
+
+
 ?>
