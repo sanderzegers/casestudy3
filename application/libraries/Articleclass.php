@@ -34,6 +34,7 @@ public function __construct($artikelArray){
 
 	if(!empty($this->tempbildname)){
 		$this->bildname = $this->picsToArray();
+		unset($this->tempbildname);
 	}
 
 }

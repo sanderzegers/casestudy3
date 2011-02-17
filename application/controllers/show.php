@@ -23,6 +23,7 @@ class Show extends CI_Controller {
 		$this->load->model('article');
 		
 		// include() is not the CI way.. but apparently the only way to load multiple objects from the same class
+		//TODO: Fix path
 		include("application/libraries/Articleclass.php");
 		
 		$dbGetByCategorie = $this->article->getByCategorie($id);

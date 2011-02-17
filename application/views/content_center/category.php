@@ -3,6 +3,8 @@ $imagePath = $this->config->item('articleImage') ;
 $defaultPicture = $this->config->item('defaultArticleImage');
 $templateImage = $this->config->item('templateImage');
 $currency = $this->config->item('currency');
+
+$this->load->helper('form_helper');
 ?>
 
 
@@ -80,7 +82,13 @@ $currency = $this->config->item('currency');
               <td width="60">Details</td>
               <td width="103"><img src="<?= $templateImage?>lupe.gif" height="16" width="16"></td>
               <td width="60">Kaufen</td>
-              <td width="107"><img src="<?= $templateImage?>warenkorb3.jpg" height="13" width="16"></td>
+              <? echo form_open('cart/add');?>
+              
+              <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($artikel))?>" />
+			  <input type="hidden" name="currentSite" value="<?= current_url()?>" / >
+
+              <td width="107"><input type="image" src="<?= $templateImage?>warenkorb3.jpg" height="13" width="16"></td>
+              <? echo form_close();?>
             </tr>
           </table>
           </div>
@@ -92,5 +100,6 @@ $currency = $this->config->item('currency');
         
 		</div>
 		
-		
+		<?
+
 		
