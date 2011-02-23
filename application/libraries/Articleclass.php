@@ -12,35 +12,37 @@ class Articleclass{
 	public $bestand = 0;
 	
 	public $verfuegbarkeit = 1;
-	public $bildname = array();
+	public $bildname;
 	private $tempbildname = '';
 	
 
-public function __construct($artikelArray){
+public function __construct($articleDbObject){
 	// Same fields as DB
-	$this->nummer = $artikelArray->ArtikelNummer;
-	$this->bezeichnung =  $artikelArray->ArtikelBezeichnung;
-	$this->beschreibung = $artikelArray->ArtikelBeschreibung;
-	$this->kategorie = $artikelArray->ArtikelKategorie;
-	$this->preis = $artikelArray->ArtikelPreis;
-	$this->status = $artikelArray->ArtikelStatus;
-	$this->bestand = $artikelArray->ArtikelBestand;
-	$this->tempbildname = $artikelArray->BildName;
+	$this->nummer = $articleDbObject->ArtikelNummer;
+	$this->bezeichnung =  $articleDbObject->ArtikelBezeichnung;
+	$this->beschreibung = $articleDbObject->ArtikelBeschreibung;
+	$this->kategorie = $articleDbObject->ArtikelKategorie;
+	$this->preis = $articleDbObject->ArtikelPreis;
+	$this->status = $articleDbObject->ArtikelStatus;
+	$this->bestand = $articleDbObject->ArtikelBestand;
+	$this->tempbildname = $articleDbObject->BildName;
+	
 	
 	// New Fields
 	$this->verfuegbarkeit = $this->calcVerfuegbarkeit();
 	
-	//$this->tempbildname = $artikelArray->BildName;
+	//$this->tempbildname = $articleDbObject->BildName;
 
-	if(!empty($this->tempbildname)){
+	if(strlen($this->tempbildname)>1){
 		$this->bildname = $this->picsToArray();
-		unset($this->tempbildname);
 	}
+	
+	unset($this->tempbildname);
 
 }
 
 public function getId(){
-	return $this->id;
+	return $this->nummer;
 }
 
 /**

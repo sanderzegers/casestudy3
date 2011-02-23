@@ -62,7 +62,7 @@ function changePic(a,b){
 	</div>
 	
    	<div id="over_content">
-	.:: <a class="a2" href="<?=site_url('login')?>">Anmelden</a> :: <a class="a2" href="<?=site_url('register')?>">Registrieren!</a> :: <a class="a2" href="index.html">kabellos</a> ::.
+	.:: <a class="a2" href="<?=site_url('login')?>">Anmelden</a> :: <a class="a2" href="<?=site_url('register')?>">Registrieren!</a> :: <a class="a2" href="<?=site_url('cart/show')?>">Warenkorb</a> ::.
 	</div>
 	
 	<div id="content">
