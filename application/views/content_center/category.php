@@ -11,7 +11,7 @@ $this->load->helper('form_helper');
 <div id="content_center">
 
 <p id="content_center_title" ></p>
-<h1> <? echo $h1[0]->KategorieName ?> </h1>
+<h1> <?= $h1[0]->KategorieName ?> </h1>
         
         
         <div id="content_center_item">
@@ -37,7 +37,7 @@ $this->load->helper('form_helper');
         <div id="content_center_item_right">
           <table border="0">
             <tr>
-              <th colspan="4"><h2 align="left"><? echo $artikel->bezeichnung?></h2></th>
+              <th colspan="4"><h2 align="left"><?= $artikel->bezeichnung?></h2></th>
               </tr>
             <tr>
               <td width="10"><img src="<?= $templateImage ?>feature_point.jpg"></td>
@@ -73,7 +73,7 @@ $this->load->helper('form_helper');
               <td width="60">Verf.</td>
               <td width="107">
               <? for ($i=1; $i <= $artikel->verfuegbarkeit; $i++){
-              echo '<img src="'.$templateImage.'feature_point.jpg" alt="">';
+              		echo '<img src="'.$templateImage.'feature_point.jpg" alt="">';
               }
               ?>
               </td>

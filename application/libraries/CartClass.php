@@ -1,22 +1,17 @@
 <?php
 
-//include("/application/libraries/Articleclass.php");
-
 
 class CartClass{
 
 
-public $allArticles; //Array containing all Articles with amount
+private $allArticles; //Array containing all Articles with amount
 
-public function __construct(){
-	$allArticles = array();
+function __construct() {
+	$this->allArticles = array();
 }
 
 
 public function add(ArticleClass $artikel, $anzahl){
-		
-	//var_dump($artikel);
-	//var_dump($this);
 		
 	foreach ($this->allArticles as &$articleCart){
 			if($articleCart["artikel"]->getId() == $artikel->getId()){
@@ -24,16 +19,28 @@ public function add(ArticleClass $artikel, $anzahl){
 				return;
 		}
 	}
-	//$this->allArticles[] = array("menge"=>$anzahl,"artikel"=>$artikel);	
+
 	$this->allArticles[] = array("menge"=>$anzahl,"artikel"=>$artikel);	
-	$this->show();
+	
+}
+
+public function remove(ArticleClass $artikel){
+		foreach ($this->allArticles as $key => &$articleCart){
+			if($articleCart["artikel"]->getId() == $artikel->getId()){
+				
+				unset($this->allArticles[$key]);
+			}
+		}
 }
 
 
 public function changeAmount(ArticleClass $artikel, $anzahl){
 	foreach ($this->allArticles as &$articleCart){
 			if($articleCart["artikel"]->getId() == $artikel->getId()){
-				$articleCart["menge"] = $anzahl;
+				$articleCart["menge"] = $articleCart["menge"] + $anzahl;
+				if($articleCart["menge"] <= 0){
+					$this->remove($articleCart["artikel"]);
+				}
 				return;
 		}
 	}
@@ -41,18 +48,24 @@ public function changeAmount(ArticleClass $artikel, $anzahl){
 }
 
 public function destroy(){
-		unset($this->allArticles);
+		$this->allArticles = array();
 	}
 
 
 
-public function show(){
-	//var_dump($this);
+public function getContent(){
+		return ($this->allArticles);
+}
+
+public function getTotalValue(){
+	$total = 0;
+	foreach ($this->allArticles as $articleCart){
+		$total += $articleCart["menge"]*$articleCart["artikel"]->getPrice();
+	}
+	return $total;
 }
 
 }
-
-
 //$test = new ArticleClass((object)array("ArtikelNummer" => 431,"ArtikelBezeichnung" => "testArtikel", "ArtikelPreis" => 12, "ArtikelKategorie" =>1));;
 //$test2 = new ArticleClass((object)array("ArtikelNummer" => 225,"ArtikelBezeichnung" => "zweiterArtikel", "ArtikelPreis" => 14, "ArtikelKategorie" =>1));
 //

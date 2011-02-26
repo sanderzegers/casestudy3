@@ -2,7 +2,7 @@
 			<div id="content_left2">
 				<div id="content_left3">
 					
-					<!-- @TODO: Soviel Code wie möglich in den Controller! -->
+					<!-- TODO: Soviel Code wie möglich in den Controller! -->
 					<?php 
 					$last = 0;
 					foreach ($menu as $a){

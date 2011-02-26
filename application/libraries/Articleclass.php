@@ -31,8 +31,7 @@ public function __construct($articleDbObject){
 	// New Fields
 	$this->verfuegbarkeit = $this->calcVerfuegbarkeit();
 	
-	//$this->tempbildname = $articleDbObject->BildName;
-
+	
 	if(strlen($this->tempbildname)>1){
 		$this->bildname = $this->picsToArray();
 	}
@@ -43,6 +42,10 @@ public function __construct($articleDbObject){
 
 public function getId(){
 	return $this->nummer;
+}
+
+public function getPrice(){
+	return $this->preis;
 }
 
 /**
