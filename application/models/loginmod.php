@@ -20,6 +20,23 @@ class Loginmod extends CI_Model{
 		}
 		else return null;
 	}
+	
+	function userNameExist($username){
+		$sql = "SELECT * from kunde where kundeBenutzername = ?";
+		$query = $this->db->query($sql,$username);
+
+		$a = $query->result_array();
+		if (count($a) >= 1){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	function createNewUser($newUser){
+		$this->db->insert('kunde',$newUser->getDbArray());
+	}
+	 
 
 }
 

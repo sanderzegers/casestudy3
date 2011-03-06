@@ -19,7 +19,7 @@ $this->load->helper('form_helper');
           <table width="527" border="0">
             <tr>
               <td width="20"><? echo $i++;?></td>
-
+              
               <td width="277"><?= $position["artikel"]->bezeichnung?></td>
               <? echo form_open('cart/action');?>
               <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($position["artikel"]))?>" />

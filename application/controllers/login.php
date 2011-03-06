@@ -24,7 +24,8 @@ class Login extends CI_Controller {
 		$formUsername = $this->input->post('username');
 		$formPassword = $this->input->post('password');
 		$this->load->model('loginmod');
-		$this->load->library('password');
+		$this->load->library('PasswordClass','password');
+		include("application/libraries/CostumerClass.php");
 		
 		if ($formUsername == null or $formPassword == null){
 			$this->message = "Benutzername/Passwort falsch";
@@ -32,19 +33,22 @@ class Login extends CI_Controller {
 			return;
 		}
 		
-		$user = $this->loginmod->getUserDetails($formUsername);
+		$user = $this->loginmod->getUserDetails($formUsername);		
 		
-		
-		$passCorrect = $this->password->checkPassword($formPassword,$user['KundePasswortSalz'],$user['KundePasswort']);
+		$passCorrect = $this->passwordclass->checkPassword($formPassword,$user['KundePasswortSalz'],$user['KundePasswort']);
 		
 		if ($passCorrect == true){
-			$this->session->set_userdata('name',$formUsername);
+			$costumer = new CostumerClass((object)$user);
+			$this->session->set_userdata('name',$costumer->name);
+			$this->session->set_userdata('costumer',$costumer);
 		}
 		else {
 			$this->message = "Benutzername/Passwort falsch";
 		}
 	$this->index();
 	}
+	
+
 }
 
 ?>

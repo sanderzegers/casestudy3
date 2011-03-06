@@ -1,6 +1,6 @@
-<?
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
 
-class Password{
+class Passwordclass{
 
 
 function createNewSalt(){
@@ -8,7 +8,7 @@ function createNewSalt(){
 
 	$salt = "";
 
-	for ($i = 0; $i<=32; $i++){
+	for ($i = 0; $i<32; $i++){
         $salt = $salt.$characters[rand(0,strlen($characters))];
 	}
 	
