@@ -113,21 +113,17 @@ $autoload['model'] = array();
 
 /* 
  * Class Autoloader.
- * This will load all my Classes 
- * 
+ * This will Autoload all custom Classes which are not CI2 Compatible, ie instancable. 
  * 
  */
 
 function __autoload($class_name) 
 {
-	//echo $class_name.":".strpos(trim($class_name),"CartClass")."<br>";
     
     $myClasses = array("ArticleClass","CartClass","CostumerClass");
     
     if(in_array($class_name,$myClasses)){
-    	echo "trying to load "."application/libraries/".$class_name."<br>";
-    	require_once "application/libraries/".$class_name.".php";
-    	
+    	require_once "application/libraries/".$class_name.".php";  	
     }
 }
 
