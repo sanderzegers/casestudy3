@@ -52,5 +52,8 @@ $this->load->helper('form_helper');
           Total: <?= $myCart->getTotalValue()?>
           <br>
           <a href="<?=site_url('cart/destroy')?>">Warenkorb leeren</a>
+          <br>
+          <a href="<?=site_url('cart/checkout')?>">Zur Kasse</a>
+          
 	  	  <p>Kaufen!</p>
 	  </div>

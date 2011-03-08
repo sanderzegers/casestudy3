@@ -22,7 +22,7 @@ class Register extends CI_Controller {
 	
 	function index(){
 		
-		$this->load->helper(array('form','url'));
+		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('PasswordClass');
 		$this->load->model('loginmod');
@@ -56,9 +56,7 @@ class Register extends CI_Controller {
 		else{
 			
 		// Form valid
-		
-		include("application/libraries/CostumerClass.php");
-		
+				
 		$costumerArray["KundeBenutzername"] = $this->input->post('username');
 		$costumerArray["KundeName"] = $this->input->post('lastname');
 		$costumerArray["KundeVorname"] = $this->input->post('firstname');

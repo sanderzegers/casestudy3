@@ -1,7 +1,7 @@
 <?php
 
 
-class Articleclass{
+class ArticleClass{
 	
 	public $nummer = 0;
 	public $bezeichnung = '';

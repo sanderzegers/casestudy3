@@ -9,6 +9,8 @@
  class Cart extends CI_Controller{
  	
  	
+ 	//function 
+ 	
  	// Needed for UTF-8 serialization issues
  	function mb_unserialize($serial_str) {
 		$out = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $serial_str );
@@ -18,11 +20,6 @@
  	function __construct()
 		{
 		parent::__construct();
-		
-		$this->load->helper('url_helper');
-		//TODO: Fix path
-		include("application/libraries/Articleclass.php");
-		include("application/libraries/CartClass.php");
 				
 		$temp = unserialize($this->session->userdata('myCart'));
 
@@ -93,16 +90,22 @@
 		
 	}
 	
-//	public function remove(){
-//		$sourceSite = $this->input->post('currentSite');
-//		$artikel = $this->mb_unserialize($this->input->post('article'));
-//		
-//		$myCart = (unserialize($this->session->userdata('myCart')));
-//		
-//		
-//		redirect($sourceSite);
-//		
-//	}
+	
+	public function checkout(){
+		
+		
+		$this->load->view('head/standard');
+		$this->load->model('menu');
+		$menuData = ($this->menu->getMenu());
+		$this->load->view('content_left/standard',array("menu" => $menuData));
+		
+		$myCart = (unserialize($this->session->userdata('myCart')));
+		$costumer = $this->session->userdata('costumer');
+		
+		$this->load->view('content_center/checkout',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
+		$this->load->view('content_right/standard');
+		$this->load->view('foot/standard');
+	}
 	
 	
 	public function destroy(){

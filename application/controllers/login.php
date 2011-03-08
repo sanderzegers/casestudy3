@@ -6,7 +6,7 @@ class Login extends CI_Controller {
 	
 	function index(){
 		
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper('form');
 
 		
 		$this->load->view('head/standard');
@@ -25,7 +25,6 @@ class Login extends CI_Controller {
 		$formPassword = $this->input->post('password');
 		$this->load->model('loginmod');
 		$this->load->library('PasswordClass','password');
-		include("application/libraries/CostumerClass.php");
 		
 		if ($formUsername == null or $formPassword == null){
 			$this->message = "Benutzername/Passwort falsch";
