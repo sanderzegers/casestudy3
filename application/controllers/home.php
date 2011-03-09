@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MY_Controller {
 	
 	function __construct()
 		{
@@ -11,8 +11,7 @@ class Home extends CI_Controller {
 		{
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
+		$this->createMenuLeft();
 		$this->load->view('content_center/standard',array("title" => "CodeIgniter Test2","content" => "Diese Seite läuft unter CodeIgniter!"));
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');

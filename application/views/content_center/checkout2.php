@@ -8,23 +8,12 @@ $i = 1;
 		<h1> <?=$title?> </h1>
 	</p>
 
-Name:
-<p><input type="text" name="lastname" value="<?php echo $costumer->name; ?>" size="50" /></p>
+<p><?php echo $costumer->vorname." ".$costumer->name; ?></p>
+<p><?php echo $costumer->adresse; ?></p>
+<p><?php echo $costumer->plz; ?></p>
+<p><?php echo $costumer->ort; ?></p>
 
-Vorname:
-<p><input type="text" name="firstname" value="<?php echo $costumer->vorname; ?>" size="50" /></p>
-
-Adresse:
-<p><input type="text" name="address" value="<?php echo $costumer->adresse; ?>" size="50" /></p>
-
-Postleitzahl:
-<p><input type="text" name="zipcode" value="<?php echo $costumer->plz; ?>" size="50" /></p>
-
-Ort:
-<p><input type="text" name="location" value="<?php echo $costumer->ort; ?>" size="50" /></p>
-
-Telefon:
-<p><input type="text" name="phone" value="<?php echo $costumer->telefon; ?>" size="50" /></p>
+<p><?php echo "Tel: ".$costumer->telefon; ?></p>
 
 <? foreach ($myCart->getContent() as $position): ?>
         

@@ -6,13 +6,11 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
  
- class Cart extends CI_Controller{
+ class Cart extends MY_Controller{
  	
- 	
- 	//function 
- 	
- 	// Needed for UTF-8 serialization issues
- 	function mb_unserialize($serial_str) {
+ 	 	
+ 	/** Needed for UTF-8 serialization issues */
+ 	private function mb_unserialize($serial_str) {
 		$out = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $serial_str );
 		return unserialize($out);
 	} 
@@ -29,12 +27,11 @@
 			}
 		}
 		
-		
+	/** Show cart contents */
 	public function show(){
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
+		$this->createMenuLeft();
 		
 		$myCart = (unserialize($this->session->userdata('myCart')));
 		
@@ -44,7 +41,7 @@
 	}
 	
 
-	
+	/** Add article to your cart */
 	public function add(){
 		
 		$sourceSite = $this->input->post('currentSite');
@@ -57,7 +54,9 @@
 		redirect($sourceSite);
 	}
 	
+	/** Add, subtract or remove article from the cart */
 	public function action(){
+		
 		$sourceSite = $this->input->post('currentSite');
 		$actionType = $this->input->post('actionType');
 		$artikel = $this->mb_unserialize($this->input->post('article'));
@@ -84,30 +83,55 @@
 		
 		$this->session->set_userdata(array("myCart" => serialize($myCart)));
 		
-		
-		
 		redirect($sourceSite);
 		
 	}
 	
-	
+	/** Checkout entry point. */
 	public function checkout(){
-		
-		
+		$temp = $this->session->userdata('costumer');
+		if(is_object($temp) && ($temp instanceof CostumerClass)){
+			$this->checkout2();
+		}
+		else $this->checkout1();
+	}
+	
+	/** 1. Checkout step: Address */
+	public function checkout1(){
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
+		$this->createMenuLeft();
 		
 		$myCart = (unserialize($this->session->userdata('myCart')));
 		$costumer = $this->session->userdata('costumer');
-		
-		$this->load->view('content_center/checkout',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
+				
+		$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');
 	}
 	
+	/** 2. Checkout step: Confirm Details */
+	public function checkout2(){
+		$this->load->view('head/standard');
+		$this->load->model('menu');
+		$this->createMenuLeft();
+		
+		$myCart = (unserialize($this->session->userdata('myCart')));
+		$costumer = $this->session->userdata('costumer');
+				
+		
+		$this->load->view('content_center/checkout2',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
+		$this->load->view('content_right/standard');
+		$this->load->view('foot/standard');
+	}
 	
+	/** Check out succesful: Send Confirmation E-Mail. Destroy Cart*/
+	public function checkoutsuccess(){
+		echo "Danke Anke!";
+		$this->destroy();
+	}
+	
+	/** Empty the cart */
 	public function destroy(){
 
 		$myCart = (unserialize($this->session->userdata('myCart')));

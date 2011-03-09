@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Show extends CI_Controller {
+class Show extends MY_Controller {
 	
 	function __construct()
 		{
@@ -45,14 +45,6 @@ class Show extends CI_Controller {
 		
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');
-	}
-	
-	
-	private function createMenuLeft(){
-		//TODO: Irgendwo Zentral speichern
-		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
 	}
 	
 	

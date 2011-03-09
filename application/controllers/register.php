@@ -1,6 +1,6 @@
-<?php
+q<?php
 
-class Register extends CI_Controller {
+class Register extends MY_Controller {
 	
 	function username_check($str){
 		$this->load->model('loginmod');
@@ -46,8 +46,7 @@ class Register extends CI_Controller {
 		
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
+		$this->createMenuLeft();
 		$this->load->view('content_center/register',array("title" => "Registrieren"));
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');
@@ -75,14 +74,13 @@ class Register extends CI_Controller {
 		$costumer = new CostumerClass((object)$costumerArray);
 		
 		
-		var_dump($costumer);
+		//var_dump($costumer);
 		
 		$this->loginmod->createNewUser($costumer);
 			
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData));
+		$this->createMenuLeft();
 		$this->load->view('content_center/registersuccess',array("title" => "Registrieren"));
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');

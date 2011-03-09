@@ -1,6 +1,6 @@
 <?php
 
-class Login extends CI_Controller {
+class Login extends MY_Controller {
 	
 	private $message = "";
 	
@@ -8,11 +8,9 @@ class Login extends CI_Controller {
 		
 		$this->load->helper('form');
 
-		
 		$this->load->view('head/standard');
 		$this->load->model('menu');
-		$menuData = ($this->menu->getMenu());
-		$this->load->view('content_left/standard',array("menu" => $menuData, "message" => $this->message));
+		$this->createMenuLeft();
 		$this->load->view('content_center/login',array("title" => "Login"));
 		$this->load->view('content_right/standard');
 		$this->load->view('foot/standard');
@@ -20,12 +18,12 @@ class Login extends CI_Controller {
 	
 	function send(){
 		
-		//TODO: Password check
 		$formUsername = $this->input->post('username');
 		$formPassword = $this->input->post('password');
 		$this->load->model('loginmod');
 		$this->load->library('PasswordClass','password');
 		
+		//TODO: Replace with Form helper
 		if ($formUsername == null or $formPassword == null){
 			$this->message = "Benutzername/Passwort falsch";
 			$this->index();
@@ -45,6 +43,12 @@ class Login extends CI_Controller {
 			$this->message = "Benutzername/Passwort falsch";
 		}
 	$this->index();
+	}
+	
+	/** Will logout the user, by simpling deleting Session */
+	function logout(){
+		$this->session->sess_destroy();
+		redirect();
 	}
 	
 

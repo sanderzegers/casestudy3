@@ -19,18 +19,8 @@
 						<p id="text_content" class="level1r">Warenkorb</p>
 						<p id="text_content" class="level2r">
 							<br>
-							Maus 1<br>
-							X &nbsp;&nbsp;+&nbsp;&nbsp;-&nbsp;&nbsp;1 Stk.&nbsp;&nbsp;150.-
-							<br><br>
-							Maus 2<br>
-							X &nbsp;&nbsp;+&nbsp;&nbsp;-&nbsp;&nbsp;1 Stk.&nbsp;&nbsp;250.-
-							<br><br>
-							Maus 3<br>
-							X &nbsp;&nbsp;+&nbsp;&nbsp;-&nbsp;&nbsp;1 Stk.&nbsp;&nbsp;170.-
-							<br><br>
-							----------------
-							<br>
-							Total:   1000.50
+							Angemeldet als:<br>
+							
 						</p>
 					</p>
 				</div> 

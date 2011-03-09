@@ -1,6 +1,7 @@
 <? 
 $currency = $this->config->item('currency'); 
 $i = 1;
+
 ?>
 
 <div id="content_center">
@@ -9,22 +10,22 @@ $i = 1;
 	</p>
 
 Name:
-<p><input type="text" name="lastname" value="<?php echo $costumer->name; ?>" size="50" /></p>
+<p><input type="text" name="lastname" value="<?php if ($costumer) echo $costumer->name; ?>" size="50" /></p>
 
 Vorname:
-<p><input type="text" name="firstname" value="<?php echo $costumer->vorname; ?>" size="50" /></p>
+<p><input type="text" name="firstname" value="<?php if ($costumer)echo $costumer->vorname; ?>" size="50" /></p>
 
 Adresse:
-<p><input type="text" name="address" value="<?php echo $costumer->adresse; ?>" size="50" /></p>
+<p><input type="text" name="address" value="<?php if ($costumer)echo $costumer->adresse; ?>" size="50" /></p>
 
 Postleitzahl:
-<p><input type="text" name="zipcode" value="<?php echo $costumer->plz; ?>" size="50" /></p>
+<p><input type="text" name="zipcode" value="<?php if ($costumer)echo $costumer->plz; ?>" size="50" /></p>
 
 Ort:
-<p><input type="text" name="location" value="<?php echo $costumer->ort; ?>" size="50" /></p>
+<p><input type="text" name="location" value="<?php if ($costumer)echo $costumer->ort; ?>" size="50" /></p>
 
 Telefon:
-<p><input type="text" name="phone" value="<?php echo $costumer->telefon; ?>" size="50" /></p>
+<p><input type="text" name="phone" value="<?php if ($costumer) echo $costumer->telefon; ?>" size="50" /></p>
 
 <? foreach ($myCart->getContent() as $position): ?>
         
