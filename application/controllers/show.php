@@ -13,7 +13,7 @@ class Show extends MY_Controller {
 		$this->load->view('head/standard');
 		$this->createMenuLeft();
 		$this->load->view('content_center/standard',array("title" => "test","content" => "inhalt"));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		}
 	
@@ -43,7 +43,7 @@ class Show extends MY_Controller {
 		}
 		
 		
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 	}
 	

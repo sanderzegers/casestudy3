@@ -48,7 +48,7 @@ class Register extends MY_Controller {
 		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/register',array("title" => "Registrieren"));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		}
 		
@@ -82,7 +82,7 @@ class Register extends MY_Controller {
 		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/registersuccess',array("title" => "Registrieren"));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		
 		$this->session->set_userdata(array("costumer" => serialize($costumer)));

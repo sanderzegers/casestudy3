@@ -36,7 +36,7 @@
 		$myCart = (unserialize($this->session->userdata('myCart')));
 		
 		$this->load->view('content_center/cartcontent',array("title" => "Warenkorb","myCart" => $myCart));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 	}
 	
@@ -106,7 +106,7 @@
 		$costumer = $this->session->userdata('costumer');
 				
 		$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 	}
 	
@@ -121,7 +121,7 @@
 				
 		
 		$this->load->view('content_center/checkout2',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 	}
 	

@@ -13,7 +13,7 @@ class Home extends MY_Controller {
 		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/standard',array("title" => "CodeIgniter Test2","content" => "Diese Seite läuft unter CodeIgniter!"));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		}
 }

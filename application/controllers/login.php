@@ -12,7 +12,7 @@ class Login extends MY_Controller {
 		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/login',array("title" => "Login"));
-		$this->load->view('content_right/standard');
+		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 	}
 	
