@@ -1,4 +1,7 @@
-<? $templateImage = $this->config->item('templateImage');?>
+<? 
+$templateImage = $this->config->item('templateImage');
+$username = $this->session->userdata('name');
+?>
 		
 		<div id="content_right">
 			<div id="content_right_top">
@@ -16,16 +19,34 @@
 			<div id="content_right_bottom2">
 				<div id="content_right_bottom3">
 					<p id="text_content">
-						<p id="text_content" class="level1r">Kunde</p>
-						<p id="text_content" class="level2l">
-							<br>
-							Angemeldet als:<br>
+						<p id="text_content" class="level1r">Warenkorb</p>
+							<table width="130" border="0" align="center">
+              				  <tr>
+                <td colspan="3">&nbsp;</td>
+                </tr>
+
+              <tr>
+                <td colspan="3">Angemeldet als:</td>
+              </tr>
+               <tr>
+                <td colspan="3"><b><?= $username?></b></td>
+              </tr>
+                <tr>
+                <td colspan="3"><a href="<?=site_url('login/logout')?>">Abmelden</a></td>
+              </tr>
+              </tr>
+                <tr>
+                <td colspan="3">Einstellungen ändern</td>
+              </tr>
+              </tr>
+                <tr>
+                <td colspan="3">---------------</td>
+              </tr>
+
+
+							</table>
+							</p>
 							
-							Details Ändern
-							
-							Warenkorb anschauen
-							
-							Abmelden
 						</p>
 					</p>
 				</div> 

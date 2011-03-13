@@ -5,22 +5,20 @@
 	</p>
 	
 	
-<?php echo validation_errors(); ?>
-
-<?php echo form_open('login/send'); ?>
+<?php echo form_open('login'); ?>
 
 
 <h5>Benutzername</h5>
-<input type="text" name="username" value="" size="50" />
+<input type="text" name="username" value="<?= set_value('username')?>" size="50"/>
 
 <h5>Passwort</h5>
-<input type="text" name="password" value="" size="50" />
+<input type="password" name="password" value="" size="50" />
 
 
 <p><div><input type="submit" value="Senden" /></div></p>
 
 <br>
-<p><font color='red'> <?=$message ?> </font></p>
+<p><font color='red'> <?= validation_errors() ?> </font></p>
 
 </form>
 

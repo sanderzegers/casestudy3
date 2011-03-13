@@ -235,6 +235,22 @@ h2 {
 	background-repeat:repeat-x;
 }
 
+#content_center_wk {
+	width: 527 px;
+	height:auto;
+}
+
+#content_center_wk_footer {
+	width: 527 px;
+	min-height: 15px;
+	height:auto;
+	min-width:527px;
+	padding-bottom: 20px;
+	background-image:url(images/dot4line.jpg);
+	background-repeat:repeat-x;
+	float:left;
+}
+
 #content_right {
 	width: 150px;
 	height:auto;

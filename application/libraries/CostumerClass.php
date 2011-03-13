@@ -1,6 +1,5 @@
 <?php
 
-// TODO: Kunde Klasse schreiben
 
 class CostumerClass{
 	
@@ -34,17 +33,17 @@ public function __construct($kundeArray){
  * This function will return contents of this class as an Array, to directly import into the DB
  */
 public function getDbArray(){
-	$DbArray[KundeName] = $this->name;
-	$DbArray[KundeVorname] = $this->vorname;
-	$DbArray[KundeAdresse] = $this->adresse;
-	$DbArray[KundePLZ] = $this->plz;
-	$DbArray[KundeOrt] = $this->ort;
-	$DbArray[KundeTelefon] = $this->telefon;
-	$DbArray[KundeMail] = $this->email;
-	$DbArray[KundeBenutzername] = $this->benutzername;
+	$DbArray["KundeName"] = $this->name;
+	$DbArray["KundeVorname"] = $this->vorname;
+	$DbArray["KundeAdresse"] = $this->adresse;
+	$DbArray["KundePLZ"] = $this->plz;
+	$DbArray["KundeOrt"] = $this->ort;
+	$DbArray["KundeTelefon"] = $this->telefon;
+	$DbArray["KundeMail"] = $this->email;
+	$DbArray["KundeBenutzername"] = $this->benutzername;
 	
-	$DbArray[KundePasswort] = $this->passwort;
-	$DbArray[KundePasswortSalz] = $this->passwortSalz;
+	$DbArray["KundePasswort"] = $this->passwort;
+	$DbArray["KundePasswortSalz"] = $this->passwortSalz;
 	
 	return $DbArray;
 }

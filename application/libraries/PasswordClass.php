@@ -4,12 +4,12 @@ class Passwordclass{
 
 
 function createNewSalt(){
-	$characters = 'abcdefghijklmnopqrstuvwxyz-:;,\></*#%&|ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+	$characters = 'abcdefghijklmnopqrstuvwxyz-:;><*#%&()ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 	$salt = "";
 
 	for ($i = 0; $i<32; $i++){
-        $salt = $salt.$characters[rand(0,strlen($characters))];
+        $salt += $characters[rand(0,strlen($characters)-1)];
 	}
 	
 	return $salt;

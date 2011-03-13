@@ -4,8 +4,6 @@
 		<h1> <?=$title?> </h1>
 	</p>
 	
-	
-<?php //echo validation_errors(); ?>
 
 <?php echo form_open('register'); ?>
 
@@ -14,20 +12,16 @@ Benutzername:
 <font color='red'><?php echo form_error('username'); ?></font>
 
 Passwort:
-<p><input type="text" name="password" value="<?php echo set_value('password'); ?>" size="50" /></p>
+<p><input type="password" name="password" value="" size="50" /></p>
 <font color='red'><?php echo form_error('password'); ?></font>
 
 Passwort wiederholen:
-<p><input type="text" name="passwordconf" value="<?php echo set_value('passwordconf'); ?>" size="50" /></p>
+<p><input type="password" name="passwordconf" value="" size="50" /></p>
 <font color='red'><?php echo form_error('passwordconf'); ?></font>
 
 E-Mail:
 <p><input type="text" name="email" value="<?php echo set_value('email'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('email'); ?></font>
-
-Telefon:
-<p><input type="text" name="phone" value="<?php echo set_value('phone'); ?>" size="50" /></p>
-<font color='red'><?php echo form_error('phone'); ?></font>
 
 Name:
 <p><input type="text" name="lastname" value="<?php echo set_value('lastname'); ?>" size="50" /></p>
@@ -49,13 +43,12 @@ Ort:
 <p><input type="text" name="location" value="<?php echo set_value('location'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('location'); ?></font>
 
+Telefon:
+<p><input type="text" name="phone" value="<?php echo set_value('phone'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('phone'); ?></font>
 
 <br><br>
-<br>
-
-
-
-<p><div><input type="submit" value="Senden" /></div></p>
+<input type="submit" value="Senden" />
 
 </form>
 

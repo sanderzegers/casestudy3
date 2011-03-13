@@ -98,6 +98,10 @@
 	
 	/** 1. Checkout step: Address */
 	public function checkout1(){
+		//TODO: Fix Form Validation
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
 		$this->load->view('head/standard');
 		$this->load->model('menu');
 		$this->createMenuLeft();

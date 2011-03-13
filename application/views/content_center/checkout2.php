@@ -7,13 +7,16 @@ $i = 1;
 	<p id="content_center_title">
 		<h1> <?=$title?> </h1>
 	</p>
-
+<h2> Adresse</h2>
 <p><?php echo $costumer->vorname." ".$costumer->name; ?></p>
 <p><?php echo $costumer->adresse; ?></p>
 <p><?php echo $costumer->plz; ?></p>
 <p><?php echo $costumer->ort; ?></p>
 
 <p><?php echo "Tel: ".$costumer->telefon; ?></p>
+
+<br>
+<h2>Warenkorb</h2>
 
 <? foreach ($myCart->getContent() as $position): ?>
         
@@ -50,7 +53,7 @@ $i = 1;
          
               
           Total: <?= $currency." ".sprintf("%01.2f",$myCart->getTotalValue()) ?>
-          <br>
+          <br><br>
           <a href="<?=site_url('cart/checkoutsuccess')?>">Bestellen!</a>
           
 </div>

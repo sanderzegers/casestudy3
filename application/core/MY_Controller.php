@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller{
 	
 	function createMiniCartRight(){
 		$usr = $this->session->userdata('name');
-		if (strlen($usr)>3){
+		if (strlen($usr)>=1){
 				$this->load->view('content_right/onlinecart');
 		}
 		else{

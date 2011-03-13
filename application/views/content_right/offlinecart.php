@@ -19,9 +19,9 @@
 						<p id="text_content" class="level1r">Warenkorb</p>
 						<p id="text_content" class="level2l">
 							<br>
-							Anmelden<br>
-							Registrieren<br>
-							
+							<a href="<?=site_url('login')?>">Anmelden</a>
+							<br>
+							<a href="<?=site_url('register')?>">Registrieren!</a>							
 						</p>
 					</p>
 				</div> 

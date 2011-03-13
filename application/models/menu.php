@@ -39,7 +39,6 @@ class Menu extends CI_Model{
 			
 
 		}
-		print_r($result);
 		return $result;
 	}
 	
