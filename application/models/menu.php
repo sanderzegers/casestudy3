@@ -8,33 +8,39 @@ class Menu extends CI_Model{
 		parent::__construct();
 	}
 
-
+	/**
+	 * Will return an array containing all menu items read from the Db.
+	 * Example: Array (	[0] => Array ( [name] => Tastaturen [class] => 1 [id] => 2 [amount] => 0 ) 
+	 * 					[1] => Array ( [name] => Tastaturen [class] => 2 [id] => 15 [amount] => 3 )
+	 */
 	function getMenu(){
 		$this->load->database();
-		
-		$sql = "select * from kategorie where KategorieOberkategorie = 0"; //=Oberkategorien
-		$sql2 = "select * from kategorie where KategorieOberkategorie = ?"; //Alle Unterkategorien von Oberkategorie
-		
-		$query = $this->db->query($sql);
-		//$data = "";
-		$data2 = array(array());
+		$result = array(array());
 		$i = 0;
-		foreach($query->result() as $row){
-			
-			//$data .= '<p id="text_content" class="level1l">'.$row->KategorieName."</p>\n";
-			$data2[$i] = array($row->KategorieName,1,$row->KategorieID);
+		
+		$sql = "select * from kategorie where KategorieOberkategorie = 0"; //= Top Category
+		$sql2 = "select * from kategorie where KategorieOberkategorie = ?"; // All subcategories from a top category
+		$sql3 = "select count(*) as articleCount from artikel where ArtikelKategorie = ?"; // amount of articles in a articlegroup
+		
+		$queryTopCategory = $this->db->query($sql);
+		
+		foreach($queryTopCategory->result() as $row){
+			$queryArticleAmount = $this->db->query($sql3,$row->KategorieID)->result();
+			$result[$i] = array("name" => $row->KategorieName,"class" => 1,"id" => $row->KategorieID,"amount" => $queryArticleAmount[0]->articleCount);
 			$i++;
-			$subquery = $this->db->query($sql2,$row->KategorieID);
-			foreach ($subquery->result() as $eintrag2){
-				//$data .= '<p id="text_content" class="level2l"><a href="index.php?show='.$eintrag2->KategorieID.'">'.$eintrag2->KategorieName."</a></p>\n";
-				$data2[$i] = array($eintrag2->KategorieName,2,$eintrag2->KategorieID);
+			
+			$querySubCategory = $this->db->query($sql2,$row->KategorieID);
+			
+			foreach ($querySubCategory->result() as $row2){
+				$queryArticleAmount = $this->db->query($sql3,$row2->KategorieID)->result();
+				$result[$i] = array("name" => $row2->KategorieName,"class" => 2,"id" => $row2->KategorieID,"amount" => $queryArticleAmount[0]->articleCount);
 				$i++;
 			}
 			
 
 		}
-		//print_r($data);
-		return $data2;
+		print_r($result);
+		return $result;
 	}
 	
 	
