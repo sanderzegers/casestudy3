@@ -28,19 +28,7 @@ class Register extends MY_Controller {
 		$this->load->model('loginmod');
 		
 		
-		$this->form_validation->set_rules('username', 'Benutzername', 'required|callback_validUsername');
-		$this->form_validation->set_rules('password', 'Passwort', 'required');
-		$this->form_validation->set_rules('passwordconf', 'Passwort Wiederholung', 'required|matches[password]');
-		$this->form_validation->set_rules('email', 'E-Mail', 'required|valid_email');
-		$this->form_validation->set_rules('phone', 'Telefon', 'required|is_natural');
-		$this->form_validation->set_rules('lastname', 'Name', 'required');
-		$this->form_validation->set_rules('firstname', 'Vorname', 'required');
-		$this->form_validation->set_rules('address', 'Adresse', 'required');
-		$this->form_validation->set_rules('zipcode', 'PLZ', 'required|min_length[4]|is_natural');
-		$this->form_validation->set_rules('location', 'Ort', 'required');
-		
-		
-		if($this->form_validation->run() == FALSE){
+		if($this->form_validation->run('register') == FALSE){
 		
 		// Form not valid
 		
@@ -72,10 +60,7 @@ class Register extends MY_Controller {
 		
 		
 		$costumer = new CostumerClass((object)$costumerArray);
-		
-		
-		//var_dump($costumer);
-		
+				
 		$this->loginmod->createNewUser($costumer);
 			
 		$this->load->view('head/standard');

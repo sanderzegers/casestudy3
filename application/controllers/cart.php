@@ -88,20 +88,11 @@
 	
 	/** 1. Checkout step: Address */
 	public function checkout1(){
-		//TODO: Fix Form Validation
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
-		//TODO: Fix duplicate register<->cart
-		$this->form_validation->set_rules('email', 'E-Mail', 'required|valid_email');
-		$this->form_validation->set_rules('phone', 'Telefon', 'required|is_natural');
-		$this->form_validation->set_rules('lastname', 'Name', 'required');
-		$this->form_validation->set_rules('firstname', 'Vorname', 'required');
-		$this->form_validation->set_rules('address', 'Adresse', 'required');
-		$this->form_validation->set_rules('zipcode', 'PLZ', 'required|min_length[4]|is_natural');
-		$this->form_validation->set_rules('location', 'Ort', 'required');
 		
-		if($this->form_validation->run() == FALSE){
+		if($this->form_validation->run('address') == FALSE){
 			$this->load->view('head/standard');
 			$this->load->model('menu');
 			$this->createMenuLeft();

@@ -9,15 +9,8 @@ class Login extends MY_Controller {
 		$this->load->library('PasswordClass','password');
 		
 		
-		$this->form_validation->set_rules('username', 'Benutzername', 'required');
-		$this->form_validation->set_rules('password', 'Passwort', 'required|callback_credentialsCheck');
-		
-		$formUsername = $this->input->post('username');
-		$formPassword = $this->input->post('password');
-		
-		if ($this->form_validation->run() == TRUE){
+		if ($this->form_validation->run('login') == TRUE){
 			redirect("/");
-			//var_dump($this->session);
 		}
 		else
 		{
@@ -32,11 +25,13 @@ class Login extends MY_Controller {
 
 	}
 	
+	/** Used by the formvalidator. */
 	function credentialsCheck(){
 		
-		$formUsername = set_value('username');
-		$formPassword = set_value('password');
-						
+		$formUsername = $this->input->post('username');
+		$formPassword = $this->input->post('password');
+		
+								
 		$user = $this->loginmod->getUserDetails($formUsername);		
 		
 		$passCorrect = $this->passwordclass->checkPassword($formPassword,$user['KundePasswortSalz'],$user['KundePasswort']);
@@ -53,7 +48,7 @@ class Login extends MY_Controller {
 		}
 	}
 	
-	/** Will logout the user, by simpling deleting the session */
+	/** Will logout the user, by simply deleting the session */
 	
 	function logout(){
 		$this->session->sess_destroy();
