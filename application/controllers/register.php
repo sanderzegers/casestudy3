@@ -74,7 +74,7 @@ class Register extends MY_Controller {
 		$costumer = new CostumerClass((object)$costumerArray);
 		
 		
-		var_dump($costumer);
+		//var_dump($costumer);
 		
 		$this->loginmod->createNewUser($costumer);
 			

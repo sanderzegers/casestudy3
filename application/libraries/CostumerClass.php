@@ -23,9 +23,13 @@ public function __construct($kundeArray){
 	$this->ort = $kundeArray->KundeOrt;
 	$this->telefon = $kundeArray->KundeTelefon;
 	$this->email = $kundeArray->KundeMail;
-	$this->benutzername = $kundeArray->KundeBenutzername;
 	
+	// Only needed for saving user settings.
+	if(isset($kundeArray->KundeBenutzername))
+	$this->benutzername = $kundeArray->KundeBenutzername;
+	if(isset($kundeArray->KundePasswort))
 	$this->passwort = $kundeArray->KundePasswort;
+	if(isset($kundeArray->KundePasswortSalz))
 	$this->passwortSalz = $kundeArray->KundePasswortSalz;
 }
 

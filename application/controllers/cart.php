@@ -15,17 +15,7 @@
 		return unserialize($out);
 	} 
  
- 	function __construct()
-		{
-		parent::__construct();
-				
-		$temp = unserialize($this->session->userdata('myCart'));
-
-		if(!(is_object($temp) && ($temp instanceof CartClass))){
-			$myCart = new CartClass;			
-			$this->session->set_userdata(array("myCart" => serialize($myCart)));		
-			}
-		}
+ 	
 		
 	/** Show cart contents */
 	public function show(){
@@ -102,16 +92,54 @@
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
-		$this->load->view('head/standard');
-		$this->load->model('menu');
-		$this->createMenuLeft();
+		//TODO: Fix duplicate register<->cart
+		$this->form_validation->set_rules('email', 'E-Mail', 'required|valid_email');
+		$this->form_validation->set_rules('phone', 'Telefon', 'required|is_natural');
+		$this->form_validation->set_rules('lastname', 'Name', 'required');
+		$this->form_validation->set_rules('firstname', 'Vorname', 'required');
+		$this->form_validation->set_rules('address', 'Adresse', 'required');
+		$this->form_validation->set_rules('zipcode', 'PLZ', 'required|min_length[4]|is_natural');
+		$this->form_validation->set_rules('location', 'Ort', 'required');
 		
-		$myCart = (unserialize($this->session->userdata('myCart')));
-		$costumer = $this->session->userdata('costumer');
+		if($this->form_validation->run() == FALSE){
+			$this->load->view('head/standard');
+			$this->load->model('menu');
+			$this->createMenuLeft();
+		
+			$myCart = (unserialize($this->session->userdata('myCart')));
+			$costumer = $this->session->userdata('costumer');
 				
-		$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
-		$this->createMiniCartRight();;
-		$this->load->view('foot/standard');
+			$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
+			$this->createMiniCartRight();
+			$this->load->view('foot/standard');
+		}
+		else{
+		
+		$costumerArray["KundeName"] = set_value('lastname');
+		$costumerArray["KundeVorname"] = set_value('firstname');
+		$costumerArray["KundeAdresse"] = set_value('address');
+		$costumerArray["KundePLZ"] = set_value('zipcode');
+		$costumerArray["KundeOrt"] = set_value('location');
+		$costumerArray["KundeTelefon"] = set_value('phone');
+		$costumerArray["KundeMail"] = set_value('email');
+		
+		$costumer = new CostumerClass((object)$costumerArray);
+		
+		$this->session->set_userdata(array('costumer'=>$costumer));
+		
+		$this->checkout2();
+		
+//		$this->load->view('head/standard');
+//		$this->load->model('menu');
+//		$this->createMenuLeft();
+//		
+//		$myCart = (unserialize($this->session->userdata('myCart')));
+//		$costumer = $this->session->userdata('costumer');
+//				
+//		$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
+//		$this->createMiniCartRight();;
+//		$this->load->view('foot/standard');
+		}
 	}
 	
 	/** 2. Checkout step: Confirm Details */

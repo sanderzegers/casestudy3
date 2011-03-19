@@ -2,5 +2,5 @@
 	<p id="content_center_title">
 		<h1> <?=$title?> </h1>
 	</p>
-	<? print_r($content);?>
+	Vielen Dank für Ihre Bestellung! Ein Bestätigungs E-Mail ist zu Ihnen unterwegs.
 </div>

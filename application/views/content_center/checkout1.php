@@ -8,24 +8,40 @@ $i = 1;
 	<p id="content_center_title">
 		<h1> <?=$title?> </h1>
 	</p>
-
+	
+<?php echo form_open('cart/checkout1'); ?>
+<h2> Adresse</h2>
 Name:
-<p><input type="text" name="lastname" value="<?php if ($costumer) echo $costumer->name; ?>" size="50" /></p>
+<p><input type="text" name="lastname" value="<?= set_value('lastname'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('lastname'); ?></font>
 
 Vorname:
-<p><input type="text" name="firstname" value="<?php if ($costumer)echo $costumer->vorname; ?>" size="50" /></p>
+<p><input type="text" name="firstname" value="<?= set_value('firstname'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('firstname'); ?></font>
 
 Adresse:
-<p><input type="text" name="address" value="<?php if ($costumer)echo $costumer->adresse; ?>" size="50" /></p>
+<p><input type="text" name="address" value="<?= set_value('address'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('address'); ?></font>
 
 Postleitzahl:
-<p><input type="text" name="zipcode" value="<?php if ($costumer)echo $costumer->plz; ?>" size="50" /></p>
+<p><input type="text" name="zipcode" value="<?= set_value('zipcode'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('zipcode'); ?></font>
 
 Ort:
-<p><input type="text" name="location" value="<?php if ($costumer)echo $costumer->ort; ?>" size="50" /></p>
+<p><input type="text" name="location" value="<?= set_value('location'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('location'); ?></font>
 
 Telefon:
-<p><input type="text" name="phone" value="<?php if ($costumer) echo $costumer->telefon; ?>" size="50" /></p>
+<p><input type="text" name="phone" value="<?= set_value('phone'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('telefon'); ?></font>
+
+Email:
+<p><input type="text" name="email" value="<?= set_value('email'); ?>" size="50" /></p>
+<font color='red'><?php echo form_error('email'); ?></font>
+
+<br>
+<br>
+<h2>Warenkorb</h2>
 
 <? foreach ($myCart->getContent() as $position): ?>
         
@@ -62,7 +78,10 @@ Telefon:
          
               
           Total: <?= $currency." ".sprintf("%01.2f",$myCart->getTotalValue()) ?>
-          <br>
-          <a href="<?=site_url('cart/checkoutsuccess')?>">Bestellen!</a>
+          <br><br>
+          <input type="submit" value="Senden" />
+
+</form>
+
           
 </div>

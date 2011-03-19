@@ -40,7 +40,7 @@ $this->load->helper('form_helper');
               <td width="20"><input type="image" src="<?= $templateImage ?>wk_rem.jpg" width="10" height="10"></td>
               <? echo form_close();?>
               <td width="70"><?= $position["menge"]?>. Stk</td>
-              <td width="70"><? echo $currency." ".sprintf("%01.2f", $position["artikel"]->preis*$position["menge"])?></td>
+              <td width="70"><?= $currency." ".sprintf("%01.2f", $position["artikel"]->preis*$position["menge"])?></td>
             </tr>
 
           </table>
@@ -49,11 +49,10 @@ $this->load->helper('form_helper');
         &nbsp;
         </div>
         <?php endforeach?>
-          Total: <?= $myCart->getTotalValue()?>
-          <br>
+          Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?>
+          <br><br>
           <a href="<?=site_url('cart/destroy')?>">Warenkorb leeren</a>
           <br>
           <a href="<?=site_url('cart/checkout')?>">Zur Kasse</a>
           
-	  	  <p>Kaufen!</p>
 	  </div>

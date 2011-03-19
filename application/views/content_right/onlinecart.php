@@ -1,6 +1,8 @@
 <? 
+$currency = $this->config->item('currency');
+$costumer = $this->session->userdata('costumer');
 $templateImage = $this->config->item('templateImage');
-$username = $this->session->userdata('name');
+
 ?>
 		
 		<div id="content_right">
@@ -29,21 +31,62 @@ $username = $this->session->userdata('name');
                 <td colspan="3">Angemeldet als:</td>
               </tr>
                <tr>
-                <td colspan="3"><b><?= $username?></b></td>
+                <td colspan="3"><b><?= $costumer->benutzername?></b></td>
               </tr>
                 <tr>
                 <td colspan="3"><a href="<?=site_url('login/logout')?>">Abmelden</a></td>
               </tr>
-              </tr>
                 <tr>
                 <td colspan="3">Einstellungen ändern</td>
               </tr>
+               </tr>
+                
+              <tr>
+                <td colspan="3">&nbsp;</td>
+                </tr>
+                <tr>
+                <td colspan="3"><a href="<?=site_url('cart/show')?>">Warenkorb</a></td>
               </tr>
+              
                 <tr>
                 <td colspan="3">---------------</td>
               </tr>
+            
+              
+                           
+              
+              <? foreach ($myCart->getContent() as $position): ?>
+              
+              
+            
+             
+              <tr>
+              <td colspan="3"><?= $position["artikel"]->bezeichnung?></td>
+              </tr>
+               <tr>
 
-
+                
+                <td><?= $position["menge"]?> Stk</td>
+                <td><?= $currency." ".sprintf("%01.2f", $position["artikel"]->preis*$position["menge"])?></td>
+              </tr>
+              
+              <tr>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+              
+              <?php endforeach?>
+               </tr>
+                <tr>
+                <td colspan="3">---------------</td>
+              </tr>
+			  <tr>
+			  <td colspan="3"> Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?> </td></tr>
+				<tr>
+                <td colspan="3">&nbsp;</td>
+              </tr>
+                 <tr>
+                <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
+              </tr>
 							</table>
 							</p>
 							

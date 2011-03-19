@@ -8,13 +8,12 @@ $i = 1;
 		<h1> <?=$title?> </h1>
 	</p>
 <h2> Adresse</h2>
-<p><?php echo $costumer->vorname." ".$costumer->name; ?></p>
-<p><?php echo $costumer->adresse; ?></p>
-<p><?php echo $costumer->plz; ?></p>
-<p><?php echo $costumer->ort; ?></p>
-
-<p><?php echo "Tel: ".$costumer->telefon; ?></p>
-
+<p><?= $costumer->vorname." ".$costumer->name; ?></p>
+<p><?= $costumer->adresse; ?></p>
+<p><?= $costumer->plz." ".$costumer->ort; ?></p>
+<p><?= "Tel: ".$costumer->telefon; ?></p>
+<a href="<?=site_url('cart/checkout1')?>">Adresse ändern</a>
+<br>
 <br>
 <h2>Warenkorb</h2>
 
