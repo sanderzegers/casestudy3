@@ -1,0 +1,15 @@
+Sehr geehrter Kunde
+
+Vielen Dank für Ihre Bestellung.
+
+Folgende Waren Haben Sie bei uns bestellt.
+
+{CART}
+
+Total Bestellung: {CARTVALUE}
+
+Die Ware wird an folgende Adresse geliefert:
+{ADDRESS}
+
+Mit freundlichen Grüssen
+Ihr Z2H Team.

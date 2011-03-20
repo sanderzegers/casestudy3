@@ -14,7 +14,6 @@ $this->load->helper('form_helper');
         </p>
 		<? foreach ($myCart->getContent() as $position): ?>
         
-        <? //var_dump($position); ?>
         <div id="content_center_wk">
           <table width="527" border="0">
             <tr>

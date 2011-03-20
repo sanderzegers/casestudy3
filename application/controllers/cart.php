@@ -120,16 +120,6 @@
 		
 		$this->checkout2();
 		
-//		$this->load->view('head/standard');
-//		$this->load->model('menu');
-//		$this->createMenuLeft();
-//		
-//		$myCart = (unserialize($this->session->userdata('myCart')));
-//		$costumer = $this->session->userdata('costumer');
-//				
-//		$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
-//		$this->createMiniCartRight();;
-//		$this->load->view('foot/standard');
 		}
 	}
 	
@@ -150,7 +140,58 @@
 	
 	/** Check out succesful: Send Confirmation E-Mail. Destroy Cart*/
 	public function checkoutsuccess(){
-		echo "Danke Anke!";
+		
+		$costumer = $this->session->userdata('costumer');
+		$currency = $this->config->item('currency'); 
+		$emailTemplate = $this->config->item('emailTemplate'); 
+		
+		$myCart = (unserialize($this->session->userdata('myCart')));
+		$costumer = $this->session->userdata('costumer');
+		
+		$body = file_get_contents($emailTemplate);
+		
+		$CART = '';
+		
+		// Replace {CART}
+		
+		foreach ($myCart->getContent() as $position){
+			$CART = $CART.$position["menge"]." Stk\n";
+			$CART = $CART.$position["artikel"]->bezeichnung."\n";	
+			$temp = sprintf("%01.2f", $position["artikel"]->preis*$position["menge"]);
+			$CART = $CART.$currency." ".$temp."\n\n";
+		}
+		$body = str_replace("{CART}",$CART,$body);
+		
+		// Replace {CARTVALUE}
+		$CARTVALUE = $currency." ".sprintf("%01.2f", $myCart->getTotalValue());
+		$body = str_replace("{CARTVALUE}",$CARTVALUE,$body);
+		
+		// Replace {ADDRESS}
+		$ADDRESS = $costumer->vorname." ".$costumer->name."\n";
+		$ADDRESS = $ADDRESS.$costumer->adresse."\n";
+		$ADDRESS = $ADDRESS.$costumer->plz." ".$costumer->ort."\n";
+		$body = str_replace("{ADDRESS}",$ADDRESS,$body);
+		
+		$this->load->library('email');
+		$this->email->from('webshop@z2h.com', 'Z2H Webshop');
+		$this->email->to($costumer->email); 
+		$this->email->subject('Email Test');
+		$this->email->message($body);
+		$this->email->send();
+		
+		echo $this->email->print_debugger();
+		
+		$this->load->view('head/standard');
+		$this->load->model('menu');
+		$this->createMenuLeft();
+		
+		$myCart = (unserialize($this->session->userdata('myCart')));
+		
+		$this->load->view('content_center/checkoutsuccess',array("title" => "Warenkorb","myCart" => $myCart));
+		$this->createMiniCartRight();;
+		$this->load->view('foot/standard');
+		
+		
 		$this->destroy();
 	}
 	
@@ -159,11 +200,9 @@
 
 		$myCart = (unserialize($this->session->userdata('myCart')));
 		$myCart->destroy();
-		$this->session->set_userdata(array("myCart" => serialize($myCart)));
-		
-		redirect($this->input->post('currentSite'));
-		
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));		
 	}
+	
 	
 		
  }

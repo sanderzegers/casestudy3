@@ -54,6 +54,16 @@ $config['templateImage'] = base_url().'images/';
 
 $config['currency'] = 'CHF';
 
+/*
+|--------------------------------------------------------------------------
+| Path to the email Template
+|--------------------------------------------------------------------------
+| 
+|
+| Default: base_url().'images/';
+|
+*/
 
+$config['emailTemplate'] = base_url().'/templates/emailTemplate.txt';
 
 ?>
