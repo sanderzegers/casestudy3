@@ -37,7 +37,7 @@ $templateImage = $this->config->item('templateImage');
                 <td colspan="3"><a href="<?=site_url('login/logout')?>">Abmelden</a></td>
               </tr>
                 <tr>
-                <td colspan="3">Einstellungen ändern</td>
+                <td colspan="3"><a href="<?=site_url('register/userdetails/start')?>">Einstellungen ändern</a></td>
               </tr>
                </tr>
                 
@@ -49,7 +49,7 @@ $templateImage = $this->config->item('templateImage');
               </tr>
               
                 <tr>
-                <td colspan="3">---------------</td>
+                <td colspan="3"><hr></td>
               </tr>
             
               
@@ -57,9 +57,6 @@ $templateImage = $this->config->item('templateImage');
               
               <? foreach ($myCart->getContent() as $position): ?>
               
-              
-            
-             
               <tr>
               <td colspan="3"><?= $position["artikel"]->bezeichnung?></td>
               </tr>
@@ -77,15 +74,16 @@ $templateImage = $this->config->item('templateImage');
               <?php endforeach?>
                </tr>
                 <tr>
-                <td colspan="3">---------------</td>
+                <td colspan="3"><hr></td>
               </tr>
 			  <tr>
 			  <td colspan="3"> Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?> </td></tr>
 				<tr>
-                <td colspan="3">&nbsp;</td>
-              </tr>
-                 <tr>
+               
                 <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
+              </tr>
+              <tr>
+                <td colspan="3">&nbsp;</td>
               </tr>
 							</table>
 							</p>

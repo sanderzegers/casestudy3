@@ -9,7 +9,7 @@ function createNewSalt(){
 	$salt = "";
 
 	for ($i = 0; $i<32; $i++){
-        $salt += $characters[rand(0,strlen($characters)-1)];
+        $salt = $salt.$characters[rand(0,strlen($characters)-1)];
 	}
 	
 	return $salt;

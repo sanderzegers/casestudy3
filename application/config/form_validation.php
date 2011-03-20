@@ -30,9 +30,18 @@ array('field' => 'firstname','label' => 'Vorname', 'rules' => 'required'),
 array('field' => 'address','label' => 'Adresse', 'rules' => 'required'),
 array('field' => 'zipcode','label' => 'PLZ', 'rules' => 'required|min_length[4]|is_natural'),
 array('field' => 'location','label' => 'Ort', 'rules' => 'required')
+),
+
+'resetPassword' => array(
+array('field' => 'username','label' => 'Benutzername', 'rules' => 'required|callback_credentialsCheck'),
+array('field' => 'password','label' => 'Passwort', 'rules' => 'required'),
+array('field' => 'newpassword','label' => 'Passwort', 'rules' => 'required'),
+array('field' => 'newpasswordconf','label' => 'Passwort Wiederholung', 'rules' => 'required|matches[newpassword]'),
+
 )
 
 );
+
 
 
 

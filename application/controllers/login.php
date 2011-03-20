@@ -25,32 +25,10 @@ class Login extends MY_Controller {
 
 	}
 	
-	/** Used by the formvalidator. */
-	function credentialsCheck(){
-		
-		$formUsername = $this->input->post('username');
-		$formPassword = $this->input->post('password');
-		
-								
-		$user = $this->loginmod->getUserDetails($formUsername);		
-		
-		$passCorrect = $this->passwordclass->checkPassword($formPassword,$user['KundePasswortSalz'],$user['KundePasswort']);
-				
-		if ($passCorrect == true){
-			$costumer = new CostumerClass((object)$user);
-			$this->session->set_userdata('name',$costumer->name);
-			$this->session->set_userdata('costumer',$costumer);
-			return true;
-		}
-		else {
-			$this->form_validation->set_message('credentialsCheck','Benutzerangaben sind falsch!');
-			return false;
-		}
-	}
 	
 	/** Will logout the user, by simply deleting the session */
-	
 	function logout(){
+		//TODO: Save Cart.
 		$this->session->sess_destroy();
 		redirect();
 	}
