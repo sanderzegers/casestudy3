@@ -2,13 +2,16 @@ Sehr geehrter Kunde
 
 Vielen Dank für Ihre Bestellung.
 
-Folgende Waren Haben Sie bei uns bestellt.
+Kurze Zusammenfassung:
+
+Lieferart: Post
+Zahlungsart: Rechnung
 
 {CART}
 
 Total Bestellung: {CARTVALUE}
 
-Die Ware wird an folgende Adresse geliefert:
+Die Artikel werden an folgende Adresse geliefert:
 {ADDRESS}
 
 Mit freundlichen Grüssen

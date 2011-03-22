@@ -29,7 +29,7 @@ public function __construct($articleDbObject){
 	
 	
 	// New Fields
-	$this->verfuegbarkeit = $this->calcVerfuegbarkeit();
+	$this->verfuegbarkeit = $this->calcAvailability();
 	
 	
 	if(strlen($this->tempbildname)>1){
@@ -40,10 +40,12 @@ public function __construct($articleDbObject){
 
 }
 
+/** Return ID of the Article */
 public function getId(){
 	return $this->nummer;
 }
 
+/** Returns price */
 public function getPrice(){
 	return $this->preis;
 }
@@ -51,7 +53,7 @@ public function getPrice(){
 /**
  * Returns a availability value of 1-5 depending on $bestand
  */
-public function calcVerfuegbarkeit(){
+private function calcAvailability(){
 	if ($this->bestand<5) return 1;
 	if ($this->bestand<10) return 2;
 	if ($this->bestand<20) return 3;
@@ -63,7 +65,7 @@ public function calcVerfuegbarkeit(){
  * Will create an Array of different pictures delivered comma seperated by the DB
  * 
  */
-public function picsToArray(){
+private function picsToArray(){
 	return explode(",",$this->tempbildname);
 }
 

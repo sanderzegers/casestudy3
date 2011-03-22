@@ -20,7 +20,6 @@
 	/** Show cart contents */
 	public function show(){
 		$this->load->view('head/standard');
-		$this->load->model('menu');
 		$this->createMenuLeft();
 		
 		$myCart = (unserialize($this->session->userdata('myCart')));
@@ -94,7 +93,6 @@
 		
 		if($this->form_validation->run('address') == FALSE){
 			$this->load->view('head/standard');
-			$this->load->model('menu');
 			$this->createMenuLeft();
 		
 			$myCart = (unserialize($this->session->userdata('myCart')));
@@ -126,7 +124,6 @@
 	/** 2. Checkout step: Confirm Details */
 	public function checkout2(){
 		$this->load->view('head/standard');
-		$this->load->model('menu');
 		$this->createMenuLeft();
 		
 		$myCart = (unserialize($this->session->userdata('myCart')));
@@ -155,7 +152,7 @@
 		// Replace {CART}
 		
 		foreach ($myCart->getContent() as $position){
-			$CART = $CART.$position["menge"]." Stk\n";
+			$CART = $CART.$position["menge"]." Stück\n";
 			$CART = $CART.$position["artikel"]->bezeichnung."\n";	
 			$temp = sprintf("%01.2f", $position["artikel"]->preis*$position["menge"]);
 			$CART = $CART.$currency." ".$temp."\n\n";
@@ -175,24 +172,22 @@
 		$this->load->library('email');
 		$this->email->from('webshop@z2h.com', 'Z2H Webshop');
 		$this->email->to($costumer->email); 
-		$this->email->subject('Email Test');
+		$this->email->subject('Ihre Bestellung bei Z2H Webshop');
 		$this->email->message($body);
 		$this->email->send();
 		
-		echo $this->email->print_debugger();
-		
-		$this->load->view('head/standard');
-		$this->load->model('menu');
-		$this->createMenuLeft();
-		
 		$myCart = (unserialize($this->session->userdata('myCart')));
-		
-		$this->load->view('content_center/checkoutsuccess',array("title" => "Warenkorb","myCart" => $myCart));
+		$myCart->destroy();
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
+						
+		$this->load->view('head/standard');
+		$this->createMenuLeft();
+		$this->load->view('content_center/checkoutsuccess',array("title" => "Warenkorb"));
 		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		
 		
-		$this->destroy();
+		
 	}
 	
 	/** Empty the cart */
@@ -200,7 +195,9 @@
 
 		$myCart = (unserialize($this->session->userdata('myCart')));
 		$myCart->destroy();
-		$this->session->set_userdata(array("myCart" => serialize($myCart)));		
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
+		redirect($this->input->post('currentSite'));
+				
 	}
 	
 	

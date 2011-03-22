@@ -23,7 +23,6 @@ class Register extends MY_Controller {
 			
 			case "start":
 					$this->load->view('head/standard');
-					$this->load->model('menu');
 					$this->createMenuLeft();
 					$this->load->view('content_center/userdetails',array("costumer" => $costumer));
 					$this->createMiniCartRight();;
@@ -34,7 +33,6 @@ class Register extends MY_Controller {
 			case "password":
 				if($this->form_validation->run('resetPassword') == FALSE){
 					$this->load->view('head/standard');
-					$this->load->model('menu');
 					$this->createMenuLeft();
 					$this->load->view('content_center/userdetails',array("costumer" => $costumer));
 					$this->createMiniCartRight();
@@ -50,7 +48,6 @@ class Register extends MY_Controller {
 					$this->session->set_userdata(array("costumer" => $costumer));
 					
 					$this->load->view('head/standard');
-					$this->load->model('menu');
 					$this->createMenuLeft();
 					$this->load->view('content_center/userdetailssuccess');
 					$this->createMiniCartRight();
@@ -62,7 +59,6 @@ class Register extends MY_Controller {
 			case "address":
 				if($this->form_validation->run('address') == FALSE){
 					$this->load->view('head/standard');
-					$this->load->model('menu');
 					$this->createMenuLeft();
 					$this->load->view('content_center/userdetails',array("costumer" => $costumer));
 					$this->createMiniCartRight();
@@ -80,7 +76,6 @@ class Register extends MY_Controller {
 					$this->session->set_userdata(array("costumer" => $costumer));
 					
 					$this->load->view('head/standard');
-					$this->load->model('menu');
 					$this->createMenuLeft();
 					$this->load->view('content_center/userdetailssuccess');
 					$this->createMiniCartRight();
@@ -104,7 +99,6 @@ class Register extends MY_Controller {
 		// Form not valid
 		
 		$this->load->view('head/standard');
-		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/register',array("title" => "Registrieren"));
 		$this->createMiniCartRight();;
@@ -135,7 +129,6 @@ class Register extends MY_Controller {
 		$this->loginmod->createNewUser($costumer);
 			
 		$this->load->view('head/standard');
-		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/registersuccess',array("title" => "Registrieren"));
 		$this->createMiniCartRight();;

@@ -34,7 +34,7 @@ function changePic(a,b){
 <BODY>
 <center>
 
-<? echo "rev ".date("r",getlastmod())?>
+<? //echo "rev ".date("r",getlastmod())?>
 
 <div id="container">
 

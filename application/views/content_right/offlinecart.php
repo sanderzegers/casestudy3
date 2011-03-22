@@ -40,14 +40,16 @@ $templateImage = $this->config->item('templateImage');
                 <tr>
                 <td colspan="3"><a href="<?=site_url('cart/show')?>">Warenkorb</a></td>
               </tr>
-             
+              <? if(count($myCart->getContent()) >= 1 ): ?>
                 <tr>
-                <td colspan="3">---------------</td>
+                <td colspan="3"><hr></td>
               </tr>
+            
               
                            
               
               <? foreach ($myCart->getContent() as $position): ?>
+              
               <tr>
               <td colspan="3"><?= $position["artikel"]->bezeichnung?></td>
               </tr>
@@ -57,26 +59,30 @@ $templateImage = $this->config->item('templateImage');
                 <td><?= $position["menge"]?> Stk</td>
                 <td><?= $currency." ".sprintf("%01.2f", $position["artikel"]->preis*$position["menge"])?></td>
               </tr>
+              
               <tr>
                 <td colspan="3">&nbsp;</td>
               </tr>
               
               <?php endforeach?>
              
+               </tr>
                 <tr>
-                <td colspan="3">---------------</td>
+                <td colspan="3"><hr></td>
               </tr>
 			  <tr>
 			  <td colspan="3"> Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?> </td></tr>
 				<tr>
-                <td colspan="3">&nbsp;</td>
-              </tr>
-                <tr>
+               
                 <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
               </tr>
+               <?php endif; ?>
+              <tr>
+                <td colspan="3">&nbsp;</td>
+              </tr>
 							</table>
+							</p>
 							
-												
 						</p>
 					</p>
 				</div> 

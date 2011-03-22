@@ -64,6 +64,6 @@ $config['currency'] = 'CHF';
 |
 */
 
-$config['emailTemplate'] = base_url().'/templates/emailTemplate.txt';
+$config['emailTemplate'] = $_SERVER['DOCUMENT_ROOT'].'/templates/emailTemplate.txt';
 
 ?>

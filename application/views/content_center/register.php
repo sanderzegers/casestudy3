@@ -7,43 +7,43 @@
 
 <?php echo form_open('register'); ?>
 
-Benutzername:
+<h5>Benutzername:</h5>
 <p><input type="text" name="username" value="<?php echo set_value('username'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('username'); ?></font>
 
-Passwort:
+<h5>Passwort:</h5>
 <p><input type="password" name="password" value="" size="50" /></p>
 <font color='red'><?php echo form_error('password'); ?></font>
 
-Passwort wiederholen:
+<h5>Passwort wiederholen:</h5>
 <p><input type="password" name="passwordconf" value="" size="50" /></p>
 <font color='red'><?php echo form_error('passwordconf'); ?></font>
 
-E-Mail:
+<h5>E-Mail:</h5>
 <p><input type="text" name="email" value="<?php echo set_value('email'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('email'); ?></font>
 
-Name:
+<h5>Name:</h5>
 <p><input type="text" name="lastname" value="<?php echo set_value('lastname'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('lastname'); ?></font>
 
-Vorname:
+<h5>Vorname:</h5>
 <p><input type="text" name="firstname" value="<?php echo set_value('firstname'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('firstname'); ?></font>
 
-Adresse:
+<h5>Adresse:</h5>
 <p><input type="text" name="address" value="<?php echo set_value('address'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('address'); ?></font>
 
-Postleitzahl:
+<h5>Postleitzahl:</h5>
 <p><input type="text" name="zipcode" value="<?php echo set_value('zipcode'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('zipcode'); ?></font>
 
-Ort:
+<h5>Ort:</h5>
 <p><input type="text" name="location" value="<?php echo set_value('location'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('location'); ?></font>
 
-Telefon:
+<h5>Telefon:</h5>
 <p><input type="text" name="phone" value="<?php echo set_value('phone'); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('phone'); ?></font>
 

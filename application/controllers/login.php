@@ -15,7 +15,6 @@ class Login extends MY_Controller {
 		else
 		{
 			$this->load->view('head/standard');
-			$this->load->model('menu');
 			$this->createMenuLeft();
 			$this->load->view('content_center/login',array("title" => "Login"));
 			$this->createMiniCartRight();;

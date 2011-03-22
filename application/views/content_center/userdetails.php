@@ -11,16 +11,16 @@
 <?php echo form_open('register/userdetails/password'); ?>
 
 <input type="hidden" name="username" value ="<?= $costumer->benutzername?>" />
-Altes Password:
+<h5>Altes Password:</h5>
 <p><input type="password" name="password" value="" size="50" /></p>
 <font color='red'><?php echo form_error('password'); ?></font>
 <font color='red'><?php echo form_error('username'); ?></font>
 
-Passwort:
+<h5>Passwort:</h5>
 <p><input type="password" name="newpassword" value="" size="50" /></p>
 <font color='red'><?php echo form_error('newpassword'); ?></font>
 
-Passwort wiederholen:
+<h5>Passwort wiederholen:</h5>
 <p><input type="password" name="newpasswordconf" value="" size="50" /></p>
 <font color='red'><?php echo form_error('newpasswordconf'); ?></font>
 <br>
@@ -35,31 +35,31 @@ Passwort wiederholen:
 <?php echo form_open('register/userdetails/address'); ?>
 
 
-E-Mail:
+<h5>E-Mail:</h5>
 <p><input type="text" name="email" value="<?php echo set_value('email',$costumer->email); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('email'); ?></font>
 
-Name:
+<h5>Name:</h5>
 <p><input type="text" name="lastname" value="<?php echo set_value('lastname',$costumer->name); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('lastname'); ?></font>
 
-Vorname:
+<h5>Vorname:</h5>
 <p><input type="text" name="firstname" value="<?php echo set_value('firstname',$costumer->vorname); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('firstname'); ?></font>
 
-Adresse:
+<h5>Adresse:</h5>
 <p><input type="text" name="address" value="<?php echo set_value('address',$costumer->adresse); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('address'); ?></font>
 
-Postleitzahl:
+<h5>Postleitzahl:</h5>
 <p><input type="text" name="zipcode" value="<?php echo set_value('zipcode',$costumer->plz); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('zipcode'); ?></font>
 
-Ort:
+<h5>Ort:</h5>
 <p><input type="text" name="location" value="<?php echo set_value('location',$costumer->ort); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('location'); ?></font>
 
-Telefon:
+<h5>Telefon:</h5>
 <p><input type="text" name="phone" value="<?php echo set_value('phone',$costumer->telefon); ?>" size="50" /></p>
 <font color='red'><?php echo form_error('phone'); ?></font>
 

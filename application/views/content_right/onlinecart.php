@@ -47,7 +47,7 @@ $templateImage = $this->config->item('templateImage');
                 <tr>
                 <td colspan="3"><a href="<?=site_url('cart/show')?>">Warenkorb</a></td>
               </tr>
-              
+              <? if(count($myCart->getContent()) >= 1 ): ?>
                 <tr>
                 <td colspan="3"><hr></td>
               </tr>
@@ -72,6 +72,7 @@ $templateImage = $this->config->item('templateImage');
               </tr>
               
               <?php endforeach?>
+             
                </tr>
                 <tr>
                 <td colspan="3"><hr></td>
@@ -82,6 +83,7 @@ $templateImage = $this->config->item('templateImage');
                
                 <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
               </tr>
+               <?php endif; ?>
               <tr>
                 <td colspan="3">&nbsp;</td>
               </tr>

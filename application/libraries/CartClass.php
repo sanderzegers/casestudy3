@@ -11,6 +11,7 @@ function __construct() {
 }
 
 
+/** Add an article to the cart */
 public function add(ArticleClass $artikel, $anzahl){
 		
 	foreach ($this->allArticles as &$articleCart){
@@ -24,6 +25,7 @@ public function add(ArticleClass $artikel, $anzahl){
 	
 }
 
+/** Remove an article from the cart */
 public function remove(ArticleClass $artikel){
 		foreach ($this->allArticles as $key => &$articleCart){
 			if($articleCart["artikel"]->getId() == $artikel->getId()){
@@ -33,7 +35,7 @@ public function remove(ArticleClass $artikel){
 		}
 }
 
-
+/** Change the amount of a specific article */
 public function changeAmount(ArticleClass $artikel, $anzahl){
 	foreach ($this->allArticles as &$articleCart){
 			if($articleCart["artikel"]->getId() == $artikel->getId()){
@@ -47,16 +49,18 @@ public function changeAmount(ArticleClass $artikel, $anzahl){
 	
 }
 
+/** Empty the cart */
 public function destroy(){
 		$this->allArticles = array();
 	}
 
 
-
+/** Returns all articles (ArticleClass[]) in the cart */
 public function getContent(){
 		return ($this->allArticles);
 }
 
+/** Returns total Value of the cart */
 public function getTotalValue(){
 	$total = 0;
 	foreach ($this->allArticles as $articleCart){
@@ -66,15 +70,6 @@ public function getTotalValue(){
 }
 
 }
-//$test = new ArticleClass((object)array("ArtikelNummer" => 431,"ArtikelBezeichnung" => "testArtikel", "ArtikelPreis" => 12, "ArtikelKategorie" =>1));;
-//$test2 = new ArticleClass((object)array("ArtikelNummer" => 225,"ArtikelBezeichnung" => "zweiterArtikel", "ArtikelPreis" => 14, "ArtikelKategorie" =>1));
-//
-//$warekoerbli = new CartClass();
-//$warekoerbli->add($test,1);
-//$warekoerbli->add($test2,4);
-//$warekoerbli->add($test2,2);
-//$warekoerbli->changeAmount($test,5);
-//$warekoerbli->show()
 
 
 ?>

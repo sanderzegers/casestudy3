@@ -53,6 +53,7 @@ $i = 1;
               
           Total: <?= $currency." ".sprintf("%01.2f",$myCart->getTotalValue()) ?>
           <br><br>
+          <?php if ($myCart->getTotalValue()>0): ?>
           <a href="<?=site_url('cart/checkoutsuccess')?>">Bestellen!</a>
-          
+          <?php endif;?>
 </div>

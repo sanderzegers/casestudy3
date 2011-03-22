@@ -10,7 +10,6 @@ class Home extends MY_Controller {
 	function index()
 		{
 		$this->load->view('head/standard');
-		$this->load->model('menu');
 		$this->createMenuLeft();
 		$this->load->view('content_center/standard',array("title" => "CodeIgniter Test2","content" => "Diese Seite läuft unter CodeIgniter!"));
 		$this->createMiniCartRight();;
