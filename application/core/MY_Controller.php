@@ -6,11 +6,11 @@ class MY_Controller extends CI_Controller{
 		{
 		parent::__construct();
 				
-		$temp = $this->session->userdata('myCart');
+		$temp = unserialize($this->session->userdata('myCart'));
 
 		if(!(is_object($temp) && ($temp instanceof CartClass))){
 			$myCart = new CartClass;			
-			$this->session->set_userdata(array("myCart" => $myCart));		
+			$this->session->set_userdata(array("myCart" => serialize($myCart)));		
 			}
 		
 		header('Content-type: text/html; charset=utf-8');
@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller{
 	
 	function createMiniCartRight(){
 		$usr = $this->session->userdata('name');
-		$myCart = ($this->session->userdata('myCart'));
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		//var_dump($myCart);
 		
 		if (strlen($usr)>=1){

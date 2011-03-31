@@ -7,13 +7,22 @@
  */
  
  class Cart extends MY_Controller{
+ 	
+ 	 	
+ 	/** Needed for UTF-8 serialization issues */
+ 	private function mb_unserialize($serial_str) {
+		$out = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $serial_str );
+		return unserialize($out);
+	} 
  
+ 	
+		
 	/** Show cart contents */
 	public function show(){
 		$this->load->view('head/standard');
 		$this->createMenuLeft();
 		
-		$myCart = $this->session->userdata('myCart');
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		
 		$this->load->view('content_center/cartcontent',array("title" => "Warenkorb","myCart" => $myCart));
 		$this->createMiniCartRight();;
@@ -25,13 +34,13 @@
 	public function add(){
 		
 		$sourceSite = $this->input->post('currentSite');
-		$artikel = unserialize(base64_decode($this->input->post('article')));
-		$myCart = $this->session->userdata('myCart');
+		$artikel = $this->mb_unserialize($this->input->post('article'));
+		$myCart = (unserialize($this->session->userdata('myCart')));
+
 		
 		$myCart->add($artikel,1);
-		$this->session->set_userdata(array("myCart" => $myCart));
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
 		redirect($sourceSite);
-		
 	}
 	
 	/** Add, subtract or remove article from the cart */
@@ -39,8 +48,8 @@
 		
 		$sourceSite = $this->input->post('currentSite');
 		$actionType = $this->input->post('actionType');
-		$artikel = unserialize(base64_decode($this->input->post('article')));
-		$myCart = $this->session->userdata('myCart');
+		$artikel = $this->mb_unserialize($this->input->post('article'));
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		
 		$add = (boolean)$this->input->post('add');
 		$subtract = (boolean)$this->input->post('subtract');
@@ -61,7 +70,7 @@
 				break;
 		}
 		
-		$this->session->set_userdata(array("myCart" => $myCart));
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
 		
 		redirect($sourceSite);
 		
@@ -86,7 +95,7 @@
 			$this->load->view('head/standard');
 			$this->createMenuLeft();
 		
-			$myCart = $this->session->userdata('myCart');
+			$myCart = (unserialize($this->session->userdata('myCart')));
 			$costumer = $this->session->userdata('costumer');
 				
 			$this->load->view('content_center/checkout1',array("title" => "Warenkorb","myCart" => $myCart, "costumer" => $costumer));
@@ -117,7 +126,7 @@
 		$this->load->view('head/standard');
 		$this->createMenuLeft();
 		
-		$myCart = $this->session->userdata('myCart');
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		$costumer = $this->session->userdata('costumer');
 				
 		
@@ -133,7 +142,7 @@
 		$currency = $this->config->item('currency'); 
 		$emailTemplate = $this->config->item('emailTemplate'); 
 		
-		$myCart = $this->session->userdata('myCart');
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		$costumer = $this->session->userdata('costumer');
 		
 		$body = file_get_contents($emailTemplate);
@@ -167,9 +176,9 @@
 		$this->email->message($body);
 		$this->email->send();
 		
-		$myCart = $this->session->userdata('myCart');
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		$myCart->destroy();
-		$this->session->set_userdata(array("myCart" => $myCart));
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
 						
 		$this->load->view('head/standard');
 		$this->createMenuLeft();
@@ -184,9 +193,9 @@
 	/** Empty the cart */
 	public function destroy(){
 
-		$myCart = $this->session->userdata('myCart');
+		$myCart = (unserialize($this->session->userdata('myCart')));
 		$myCart->destroy();
-		$this->session->set_userdata(array("myCart" => $myCart));
+		$this->session->set_userdata(array("myCart" => serialize($myCart)));
 		redirect($this->input->post('currentSite'));
 				
 	}
