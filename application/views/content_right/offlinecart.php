@@ -29,16 +29,16 @@ $templateImage = $this->config->item('templateImage');
                 </tr>
 
                <tr>
-                <td colspan="3"><a href="<?=site_url('login')?>">Anmelden</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('login')?>">Anmelden</a></td>
               </tr>
                 <tr>
-                <td colspan="3"><a href="<?=site_url('register')?>">Registrieren!</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('register')?>">Registrieren!</a></td>
               </tr>
               <tr>
                 <td colspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                <td colspan="3"><a href="<?=site_url('cart/show')?>">Warenkorb</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('cart/show')?>">Warenkorb</a></td>
               </tr>
               <? if(count($myCart->getContent()) >= 1 ): ?>
                 <tr>
@@ -74,7 +74,7 @@ $templateImage = $this->config->item('templateImage');
 			  <td colspan="3"> Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?> </td></tr>
 				<tr>
                
-                <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
               </tr>
                <?php endif; ?>
               <tr>

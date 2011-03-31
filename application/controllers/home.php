@@ -11,7 +11,7 @@ class Home extends MY_Controller {
 		{
 		$this->load->view('head/standard');
 		$this->createMenuLeft();
-		$this->load->view('content_center/standard',array("title" => "CodeIgniter Test2","content" => "Diese Seite läuft unter CodeIgniter!"));
+		$this->load->view('content_center/standard',array("title" => "Casestudy TI 5 - Webshop","content" => "Eine Casestudy von Roland Hürlimann, Sander Zegers und Christoph Zihlmann."));
 		$this->createMiniCartRight();;
 		$this->load->view('foot/standard');
 		}
