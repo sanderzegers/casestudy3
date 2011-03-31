@@ -39,28 +39,32 @@ $this->load->helper('form_helper');
             <tr>
               <th colspan="4"><h2 align="left"><?= $artikel->bezeichnung?></h2></th>
               </tr>
-            <? for ($i=0; $i<count($artikel->feature); $i = $i + 2){
-            	echo "<tr>";
-            	echo '<td width="10"><img src="'.$templateImage.'feature_point.jpg"></td>';
-            	echo '<td width="155">'.$artikel->feature[$i].'</td>';
-            	if(isset($artikel->feature[$i+1])){
-            	echo '<td width="10"><img src="'.$templateImage.'feature_point.jpg"></td>';
-            	echo '<td width="155">'.$artikel->feature[$i+1].'</td>';}
-            	echo "</tr>";
-            }
-            
-        	?>
-            
-            
-        
+            <tr>
+              <td width="10"><img src="<?= $templateImage ?>feature_point.jpg"></td>
+              <td width="155">Feature 1</td>
+              <td width="10"><img src="<?= $templateImage ?>feature_point.jpg"></td>
+              <td width="155">Feature 2</td>
+            </tr>
+            <tr>
+<? // TODO: Feature points in seperate Table and parsing here; 
+;?>
+              <td><img src="<?= $templateImage ?>feature_point.jpg"></td>
+              <td>Feature 3</td>
+              <td><img src="<?= $templateImage ?>feature_point.jpg"></td>
+              <td>Feature 4</td>
+            </tr>
+            <tr>
+              <td><img src="<?= $templateImage?>feature_point.jpg"></td>
+              <td>Feature 5</td>
+              <td><img src="<?= $templateImage?>feature_point.jpg"></td>
+              <td>Feature 6</td>
+            </tr>
             <tr>
               <td>&nbsp;</td>
               <td>&nbsp;</td>
               <td></td>
               <td></td>
             </tr>
-            
-            
           </table>
           <table width="348" border="0">
             <tr>
