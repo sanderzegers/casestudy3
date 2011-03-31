@@ -18,6 +18,11 @@ body {
 .a2:hover {color:#dd2032; text-decoration:none;}
 .a2:active {color:#dd2032; text-decoration:none;}
 
+.a3:link {color:#01a7a7; text-decoration:underline;}
+.a3:visited {color:#01a7a7; text-decoration:underline;}
+.a3:hover {color:#FFFFFF; text-decoration:none;}
+.a3:active {color:#FFFFFF; text-decoration:none;}
+
 #content_left3 a:link {color:#ffffff; text-decoration:none;}
 #content_left3 a:visited {color:#ffffff; text-decoration:none;}
 #content_left3 a:hover {color:#ffffff; text-decoration:underline;}
@@ -32,7 +37,7 @@ h1 {
 h2 {
 	font-size: 16px;
 	font-weight:bold;
-	color:006764;
+	color:01a7a7;
 	margin-top: 8px;
 	margin-bottom: 8px;
 	}

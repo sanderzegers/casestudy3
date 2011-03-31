@@ -81,10 +81,6 @@ $templateImage = $this->config->item('templateImage');
                 <td colspan="3">&nbsp;</td>
               </tr>
 							</table>
-							</p>
-							
-						</p>
-					</p>
 				</div> 
 			</div>  
 		</div>  

@@ -12,6 +12,9 @@ class MY_Controller extends CI_Controller{
 			$myCart = new CartClass;			
 			$this->session->set_userdata(array("myCart" => serialize($myCart)));		
 			}
+		
+		header('Content-type: text/html; charset=utf-8');
+		
 		}
 		
 	function createMenuLeft(){

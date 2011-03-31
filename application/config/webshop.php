@@ -3,6 +3,10 @@
 $CI =& get_instance();
 $CI->load->helper('url');
 
+
+// Load default settings from global config file. Shared with Backend.
+include $_SERVER['DOCUMENT_ROOT'].'/config.inc';
+
 /*
 |--------------------------------------------------------------------------
 | Path of image articles
@@ -13,7 +17,7 @@ $CI->load->helper('url');
 |
 */
 
-$config['articleImage'] = base_url().'articleimages/';
+$config['articleImage'] = base_url().$strImagePath;
 
 
 /*
@@ -27,7 +31,7 @@ $config['articleImage'] = base_url().'articleimages/';
 |
 */
 
-$config['defaultArticleImage'] = base_url()."images/products/mouse1.jpg";
+$config['defaultArticleImage'] = base_url().$strDefaultImage;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +56,7 @@ $config['templateImage'] = base_url().'images/';
 |
 */
 
-$config['currency'] = 'CHF';
+$config['currency'] = $strCurrency;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +68,6 @@ $config['currency'] = 'CHF';
 |
 */
 
-$config['emailTemplate'] = $_SERVER['DOCUMENT_ROOT'].'/templates/emailTemplate.txt';
+$config['emailTemplate'] = $_SERVER['DOCUMENT_ROOT'].$strEmailTemplate;
 
 ?>

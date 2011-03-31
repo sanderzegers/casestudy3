@@ -1,5 +1,6 @@
 <?php
 
+//TODO: Implement PHP Magic Setter and Getter
 
 class ArticleClass{
 	
@@ -18,6 +19,7 @@ class ArticleClass{
 
 public function __construct($articleDbObject){
 	// Same fields as DB
+	
 	$this->nummer = $articleDbObject->ArtikelNummer;
 	$this->bezeichnung =  $articleDbObject->ArtikelBezeichnung;
 	$this->beschreibung = $articleDbObject->ArtikelBeschreibung;
@@ -37,7 +39,6 @@ public function __construct($articleDbObject){
 	}
 	
 	unset($this->tempbildname);
-
 }
 
 /** Return ID of the Article */

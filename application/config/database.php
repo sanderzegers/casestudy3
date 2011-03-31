@@ -38,13 +38,19 @@
 | the active record class
 */
 
+
+// Load default settings from global config file. Shared with Backend.
+include $_SERVER['DOCUMENT_ROOT'].'/config.inc';
+
+
+
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '30361_webshop';
-$db['default']['password'] = 'CaseStudy10';
-$db['default']['database'] = '30361_webshop';
+$db['default']['hostname'] = $strDBHost;
+$db['default']['username'] = $strDBUser;
+$db['default']['password'] = $strDBPassword;
+$db['default']['database'] = $strDBName;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

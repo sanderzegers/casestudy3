@@ -15,6 +15,7 @@ class Menu extends CI_Model{
 	 */
 	function getMenu(){
 		$this->load->database();
+		//$this->db->cache_on();
 		$result = array(array());
 		$i = 0;
 		
@@ -39,6 +40,7 @@ class Menu extends CI_Model{
 			
 
 		}
+		//$this->db->cache_off();
 		return $result;
 	}
 	
