@@ -84,7 +84,7 @@ $this->load->helper('form_helper');
               <td width="60">Kaufen</td>
               <? echo form_open('cart/add');?>
               
-              <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($artikel))?>" />
+              <input type="hidden" name="article" value="<? echo base64_encode(serialize($artikel))?>" />
 			  <input type="hidden" name="currentSite" value="<?= current_url()?>" / >
 
               <td width="107"><input type="image" src="<?= $templateImage?>warenkorb3.jpg" height="13" width="16"></td>

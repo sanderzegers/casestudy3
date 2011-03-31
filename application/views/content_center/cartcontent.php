@@ -21,19 +21,19 @@ $this->load->helper('form_helper');
               
               <td width="277"><?= $position["artikel"]->bezeichnung?></td>
               <? echo form_open('cart/action');?>
-              <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($position["artikel"]))?>" />
+              <input type="hidden" name="article" value="<? echo base64_encode(serialize($position["artikel"]))?>" />
 			  <input type="hidden" name="currentSite" value="<?= current_url()?>" / >
               <input type="hidden" name="actionType" value="remove"/>
               <td width="20"><input type="image" src="<?= $templateImage ?>wk_delete.jpg" width="10" height="10"></td>
               <? echo form_close();?>
               <? echo form_open('cart/action');?>
-              <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($position["artikel"]))?>" />
+              <input type="hidden" name="article" value="<? echo base64_encode(serialize($position["artikel"]))?>" />
 			  <input type="hidden" name="currentSite" value="<?= current_url()?>" / >
 			  <input type="hidden" name="actionType" value="add"/>
               <td width="20"><input type="image" src="<?= $templateImage ?>wk_add.jpg" width="10" height="10"></td>
               <? echo form_close();?>
               <? echo form_open('cart/action');?>
-              <input type="hidden" name="article" value="<? echo htmlspecialchars(serialize($position["artikel"]))?>" />
+              <input type="hidden" name="article" value="<? echo base64_encode(serialize($position["artikel"]))?>" />
 			  <input type="hidden" name="currentSite" value="<?= current_url()?>" / >
 			  <input type="hidden" name="actionType" value="subtract"/>
               <td width="20"><input type="image" src="<?= $templateImage ?>wk_rem.jpg" width="10" height="10"></td>
