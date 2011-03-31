@@ -42,16 +42,16 @@ function changePic(a,b){
 		<div id="top_left">
 		</div>
 		<div id="top_home">
-	   		<a class="a1" href=<?= base_url()?>>Home</a>
+	   		<a class="a1" href="index.html">Home</a>
 		</div>
 		<div id="top_firma">
-			<a class="a1" href=<?= base_url()?>>Firma</a>
+			<a class="a1" href="index.html">Firma</a>
 		</div>
 		<div id="top_shop">
-			<a class="a1" href=<?= site_url('show/category/75') ?>>Online Shop</a>
+			<a class="a1" href="index.html">Online Shop</a>
 		</div>
 		<div id="top_kontakt">
-			   	<a class="a1" href=<?= base_url()?>>Kontakt</a>
+			   	<a class="a1" href="index.html">Kontakt</a>
 		</div>
 	</div>
 	
