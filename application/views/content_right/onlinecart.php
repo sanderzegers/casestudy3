@@ -22,6 +22,7 @@ $templateImage = $this->config->item('templateImage');
 				<div id="content_right_bottom3">
 					<p id="text_content">
 						<p id="text_content" class="level1r">Warenkorb</p>
+						
 							<table width="130" border="0" align="center">
               				  <tr>
                 <td colspan="3">&nbsp;</td>
@@ -34,10 +35,10 @@ $templateImage = $this->config->item('templateImage');
                 <td colspan="3"><b><?= $costumer->benutzername?></b></td>
               </tr>
                 <tr>
-                <td colspan="3"><a href="<?=site_url('login/logout')?>">Abmelden</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('login/logout')?>">Abmelden</a></td>
               </tr>
                 <tr>
-                <td colspan="3"><a href="<?=site_url('register/userdetails/start')?>">Einstellungen ändern</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('register/userdetails/start')?>">Einstellungen ändern</a></td>
               </tr>
                </tr>
                 
@@ -45,7 +46,7 @@ $templateImage = $this->config->item('templateImage');
                 <td colspan="3">&nbsp;</td>
                 </tr>
                 <tr>
-                <td colspan="3"><a href="<?=site_url('cart/show')?>">Warenkorb</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('cart/show')?>">Warenkorb</a></td>
               </tr>
               <? if(count($myCart->getContent()) >= 1 ): ?>
                 <tr>
@@ -81,16 +82,17 @@ $templateImage = $this->config->item('templateImage');
 			  <td colspan="3"> Total: <?= $currency." ".sprintf("%01.2f", $myCart->getTotalValue());?> </td></tr>
 				<tr>
                
-                <td colspan="3"><a href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
+                <td colspan="3"><a class="a3" href="<?=site_url('cart/checkout')?>">Zur Kasse</a></td>
               </tr>
                <?php endif; ?>
               <tr>
                 <td colspan="3">&nbsp;</td>
               </tr>
 							</table>
-							</p>
+							
 							
 						</p>
+					</p>
 					</p>
 				</div> 
 			</div>  

@@ -14,7 +14,9 @@ class ArticleClass{
 	
 	public $verfuegbarkeit = 1;
 	public $bildname;
+	public $feature;
 	private $tempbildname = '';
+	private $tempfeaturename = '';
 	
 
 public function __construct($articleDbObject){
@@ -28,14 +30,17 @@ public function __construct($articleDbObject){
 	$this->status = $articleDbObject->ArtikelStatus;
 	$this->bestand = $articleDbObject->ArtikelBestand;
 	$this->tempbildname = $articleDbObject->BildName;
-	
+	$this->tempfeaturename = $articleDbObject->Features;
 	
 	// New Fields
 	$this->verfuegbarkeit = $this->calcAvailability();
 	
+	if(strlen($this->tempfeaturename)>1){
+		$this->feature = explode(",",$this->tempfeaturename);
+	}
 	
 	if(strlen($this->tempbildname)>1){
-		$this->bildname = $this->picsToArray();
+		$this->bildname = explode(",",$this->tempbildname);
 	}
 	
 	unset($this->tempbildname);
@@ -62,13 +67,6 @@ private function calcAvailability(){
 	return 5;
 }
 
-/**
- * Will create an Array of different pictures delivered comma seperated by the DB
- * 
- */
-private function picsToArray(){
-	return explode(",",$this->tempbildname);
-}
 
 }
 //$test = new artikel(array("irgendoepis" => 123, "ArtikelNummer" => 1,"ArtikelBezeichnung" => "testArtikel", "ArtikelPreis" => 12, "ArtikelKategorie" =>1));

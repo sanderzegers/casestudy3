@@ -19,8 +19,8 @@ class Menu extends CI_Model{
 		$result = array(array());
 		$i = 0;
 		
-		$sql = "select * from kategorie where KategorieOberkategorie = 0"; //= Top Category
-		$sql2 = "select * from kategorie where KategorieOberkategorie = ?"; // All subcategories from a top category
+		$sql = "select * from kategorie where KategorieOberkategorie = 0 order by KategorieOrder"; //= Top Category
+		$sql2 = "select * from kategorie where KategorieOberkategorie = ? order by KategorieOrder"; // All subcategories from a top category
 		$sql3 = "select count(*) as articleCount from artikel where ArtikelKategorie = ?"; // amount of articles in a articlegroup
 		
 		$queryTopCategory = $this->db->query($sql);

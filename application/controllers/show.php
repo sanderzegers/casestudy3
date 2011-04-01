@@ -35,7 +35,6 @@ class Show extends MY_Controller {
 		foreach($dbGetByCategorie as $dbArticle){
 			$articles[] = new ArticleClass($dbArticle);
 		}
-		//TODO: Feature Tabelle verwenden
 			$data['content'] = $articles;
 			$this->load->view('content_center/category',$data);
 		}
